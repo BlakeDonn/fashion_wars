@@ -8,28 +8,28 @@
 // etc
 
 .results-header {
-  background: lightpink;
+  background: $homeBlue;
   padding: 2rem;
   grid-column: 1 / 4;
 }
 
 .left-sidebar {
-  background: lightblue;
+  background: $homeGreen;
   grid-column: 1 / 2;
 }
 
 .results-main {
-  background: coral;
+  background: $homeRed;
   grid-column: 2 / 3;
 }
 
 .right-sidebar {
-  background: yellow;
+  background: $homeGreen;
   grid-column: 3 / 4;
 }
 
 .results-footer {
-  background: wheat;
+  background: $homeBlue;
   padding: 2rem;
   text-align: center;
   grid-column: 1 / 4;
