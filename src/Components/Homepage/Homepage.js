@@ -4,7 +4,7 @@ export const  Homepage = () => {
   return (
     <div className="Homepage">
       <header className="Homepage-header">
-          Learn React
+          Homepage 
       </header>
     </div>
   );
