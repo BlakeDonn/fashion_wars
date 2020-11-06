@@ -8,7 +8,7 @@ export const getUserSkins = async () => {
 }
 
 export const geAllSkins = async () => {
-  const response = await fetch('https://wiki.guildwars2.com/wiki/API:1/skins')
+  const response = await fetch('https://api.guildwars2.com/v1/skins.json')
   if (response.ok) {
     return await response.json()
   } else {
