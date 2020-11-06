@@ -23,13 +23,20 @@
   background: $homeGreen;
 
   .checkbox-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-self:center;
     display: grid;
     justify-content: center;
+    row-gap: 15px;
     grid-template-areas:
       "header header"
       "armor armor-label"
       "weapon weapon-label"
-      "dye dye-label";
+      "dye dye-label"
+      "skin-submit skin-submit";
 
     .check-header {
       grid-area: header;
@@ -62,6 +69,10 @@
     .dyes-label {
       justify-self:start;
       grid-area: dye-label;
+    }
+    .skin-submit {
+      justify-self: center;
+      grid-area: skin-submit;
     }
   }
 }
