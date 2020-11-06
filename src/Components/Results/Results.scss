@@ -1,0 +1,44 @@
+@import "../../styles/variables.scss";
+.results {
+  display: grid;
+  height: 100vh;
+  grid-template: auto 1fr auto / auto auto auto
+}
+
+// etc
+
+.results-header {
+  background: $homeBlue;
+  padding: 2rem;
+  grid-column: 1 / 4;
+}
+
+.left-sidebar {
+  text-align:center;
+  background: $homeGreen;
+  grid-column: 1 / 2;
+}
+
+.results-main {
+  text-align:center;
+  background: $homeRed;
+  grid-column: 2 / 3;
+}
+
+.right-sidebar {
+  text-align:center;
+  background: $homeGreen;
+  grid-column: 3 / 4;
+}
+
+.results-footer {
+  background: $homeBlue;
+  padding: 2rem;
+  text-align: center;
+  grid-column: 1 / 4;
+}
+
+.results {
+  font-family: system-ui, sans-serif;
+}
+
