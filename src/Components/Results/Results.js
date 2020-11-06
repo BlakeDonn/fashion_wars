@@ -4,7 +4,7 @@ export const Results = () => {
   return (
     <div className="results">
       <header className='results-header'>
-        <h1>Yeet</h1>
+        <h1>Skins you need to unlock!</h1>
       </header>
       <div className="left-sidebar">right-side-for-armor</div>
       <main className='results-main'>right-side-for-weapons</main>
