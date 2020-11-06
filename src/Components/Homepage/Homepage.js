@@ -6,7 +6,7 @@ export const Homepage = () => {
       <section className="container">
         <header className="home-header">Header</header>
         <main className="home-main">
-          <h1>Welcome To Fasion Wars !</h1>
+          <h1>Welcome To Fashion Wars !</h1>
           <div className="checkbox-container">
             <h3 className="check-header">Which skins would you like to find?</h3>
             <input type="checkbox" className="armor" name="armor" value="armor"></input>
