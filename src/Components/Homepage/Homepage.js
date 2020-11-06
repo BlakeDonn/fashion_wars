@@ -7,15 +7,16 @@ export const Homepage = () => {
         <header className="home-header">Header</header>
         <main className="home-main">
           <h1>Welcome To Fasion Wars !</h1>
-          <container>
-            <h3>Which skins would you like to find?</h3>
-            <input type="checkbox"></input>Armor
-            <input type="checkbox"></input>Weapons
-            <input type="checkbox"></input>Dyes
+          <div className="checkbox-container">
+            <h3 className ="check-header">Which skins would you like to find?</h3>
+            <input type="checkbox" className="armor" name="armor" value="armor"></input>
+            <label for="armor" className="armor-label">Armor</label>
+            <input type="checkbox"className="weapons"></input>
+            <label for="weapons" className="weapons-label">Weapons</label>
+            <input type="checkbox"className="dyes"></input>
+            <label for="dyes" className="dyes-label">Dyes</label>
             <button>Find skins!</button>
-          </container>
-
-          
+          </div>
         </main>
         <footer className="home-footer">Footer Content</footer>
       </section>
