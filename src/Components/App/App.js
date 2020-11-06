@@ -1,5 +1,6 @@
 import "./App.css";
 import {Homepage} from "../Homepage/Homepage";
+import {Results} from "../Results/Results";
 import React, {useState} from "react";
 import {Route} from "react-router-dom";
 
@@ -17,8 +18,11 @@ export const App = () => {
   return (
     <div className="App">
       <header className="">
-        <Route path="/">
+        <Route exact path="/">
           <Homepage updateSelections={updateSelections} />
+        </Route>
+        <Route exact path="/results">
+          <Results selectedSkins={selections} />
         </Route>
       </header>
     </div>
