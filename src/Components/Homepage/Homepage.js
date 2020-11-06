@@ -3,9 +3,11 @@ import "./Homepage.css";
 export const Homepage = () => {
   return (
     <div className="parent">
-      <header className="blue section">Header</header>
-      <main className="coral section">HomePage</main>
-      <footer className="purple section">Footer Content</footer>
+      <section className="container">
+      <header className="home-header">Header</header>
+      <main className="home-main">HomePage</main>
+      <footer className="home-footer">Footer Content</footer>
+      </section>
     </div>
   );
 };
