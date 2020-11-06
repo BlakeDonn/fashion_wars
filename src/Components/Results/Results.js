@@ -1,6 +1,18 @@
 import "./Results.scss";
+import React, {useState} from "react";
 
 export const Results = () => {
+  const [neededSkins, setNeeededSkins] = useState({
+    armor: [],
+    weapons: [],
+    dyes: [],
+  })
+
+  const updateUserSkins = (e) => {
+    let selectionsToUpdate = selections;
+    selectionsToUpdate.userSkins =
+      setSelections(selectionsToUpdate);
+  };
   return (
     <div className="results">
       <header className='results-header'>
