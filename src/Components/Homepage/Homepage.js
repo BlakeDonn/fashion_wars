@@ -1,6 +1,6 @@
 import "./Homepage.scss";
 
-export const Homepage = () => {
+export const Homepage = (props) => {
   return (
     <div className="parent">
       <section className="container">
@@ -9,7 +9,7 @@ export const Homepage = () => {
           <h1>Welcome To Fashion Wars !</h1>
           <div className="checkbox-container">
             <h3 className="check-header">Which skins would you like to find?</h3>
-            <input type="checkbox" className="armor" name="armor" value="armor"></input>
+            <input type="checkbox" className="armor" name="armor" value="armor" onChange={(e) => props.updateSelections(e)}></input>
             <label for="armor" className="armor-label">Armor</label>
             <input type="checkbox" className="weapons"></input>
             <label for="weapons" className="weapons-label">Weapons</label>
