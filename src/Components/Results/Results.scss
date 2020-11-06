@@ -14,16 +14,19 @@
 }
 
 .left-sidebar {
+  text-align:center;
   background: $homeGreen;
   grid-column: 1 / 2;
 }
 
 .results-main {
+  text-align:center;
   background: $homeRed;
   grid-column: 2 / 3;
 }
 
 .right-sidebar {
+  text-align:center;
   background: $homeGreen;
   grid-column: 3 / 4;
 }
