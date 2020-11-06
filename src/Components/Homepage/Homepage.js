@@ -1,13 +1,11 @@
-import './Homepage.css';
+import "./Homepage.css";
 
-export const  Homepage = () => {
+export const Homepage = () => {
   return (
-    <div className="Homepage">
-      <header className="Homepage-header">
-          Homepage 
-      </header>
+    <div className="parent">
+      <header className="blue section">Header</header>
+      <main className="coral section">HomePage</main>
+      <footer className="purple section">Footer Content</footer>
     </div>
   );
-}
-
-
+};
