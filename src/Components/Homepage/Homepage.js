@@ -11,6 +11,7 @@ export const Homepage = (props) => {
             className={skin}
             name={skin}
             onClick={(e) => props.updateSelections(e)}
+            data-testid={`${skin}-test`}
           ></input>
           <label for="armor" className={`${skin}-label`}>
             {skin}
