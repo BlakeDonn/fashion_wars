@@ -35,29 +35,32 @@
       grid-area: header;
     }
     .armor {
-      justify-self:end;
+      justify-self:center;
       grid-area: armor;
     }
 
     .armor-label {
+      justify-self:start;
       grid-area: armor-label;
     }
 
     .weapons {
-      justify-self:end;
+      justify-self:center;
       grid-area: weapon;
     }
 
     .weapons-label {
+      justify-self:start;
       grid-area: weapon-label;
     }
 
     .dyes {
-      justify-self:end;
+      justify-self:center;
       grid-area: dye;
     }
 
     .dyes-label {
+      justify-self:start;
       grid-area: dye-label;
     }
   }
