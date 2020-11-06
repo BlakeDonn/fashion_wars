@@ -15,6 +15,7 @@ export const App = () => {
     selectionsToUpdate[e.target.name] = !selectionsToUpdate[e.target.name];
     setSelections(selectionsToUpdate);
   };
+  console.log(process.env.REACT_APP_API_KEY)
   return (
     <div className="App">
       <header className="">
