@@ -14,7 +14,7 @@ export const Homepage = (props) => {
     setSelections(selectionsToUpdate);
   };
   const determineStateToPost = () => {
-    return `/results/:${Object.values(selections)}`;
+    return `/results/${Object.values(selections)}`;
   };
   const skinTypes = () => {
     let skins = ["armor", "weapons", "dyes"];
