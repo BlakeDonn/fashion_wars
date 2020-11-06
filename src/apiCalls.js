@@ -8,9 +8,17 @@ export const getUserSkins = async () => {
 }
 
 export const getAllSkins = async () => {
-  const response = await fetch('https://api.guildwars2.com/v1/skins.json')
+  const response = await fetch(`https://api.guildwars2.com/v2/skins`)
   if (response.ok) {
-    console.log(response)
+    return await response.json()
+  } else {
+    return response.error
+  }
+}
+
+export const getFilteredSkins = async (skins) => {
+  const response = await fetch(`https://api.guildwars2.com/v2/skins?ids=${skins}`)
+  if (response.ok) {
     return await response.json()
   } else {
     return response.error
