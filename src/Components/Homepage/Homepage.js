@@ -15,7 +15,7 @@ export const Homepage = () => {
             <label for="weapons" className="weapons-label">Weapons</label>
             <input type="checkbox" className="dyes"></input>
             <label for="dyes" className="dyes-label">Dyes</label>
-            <button>Find skins!</button>
+            <button className='skin-submit'>Find skins!</button>
           </div>
         </main>
         <footer className="home-footer">Footer Content</footer>
