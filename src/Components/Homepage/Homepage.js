@@ -6,19 +6,16 @@ export const Homepage = () => {
       <section className="container">
         <header className="home-header">Header</header>
         <main className="home-main">
-          <h2>Welcome To Fasion Wars !</h2>
-          <ul>
-            <li><input type="checkbox"
-          ></input>Armor
-            </li>
+          <h1>Welcome To Fasion Wars !</h1>
+          <container>
+            <h3>Which skins would you like to find?</h3>
+            <input type="checkbox"></input>Armor
+            <input type="checkbox"></input>Weapons
+            <input type="checkbox"></input>Dyes
+            <button>Find skins!</button>
+          </container>
 
-            <li><input type="checkbox"
-          ></input>Armor
-            </li>
-            <li><input type="checkbox"
-          ></input>Armor
-            </li>
-          </ul>
+          
         </main>
         <footer className="home-footer">Footer Content</footer>
       </section>
