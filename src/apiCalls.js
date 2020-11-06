@@ -1,5 +1,5 @@
 export const getUserSkins = async () => {
-  const response = await fetch(process.env.API_KEY)
+  const response = await fetch(`https://api.guildwars2.com/v2/account/skins?access_token=${process.env.API_KEY}`)
   if (response.ok) {
     return await response.json()
   } else {
