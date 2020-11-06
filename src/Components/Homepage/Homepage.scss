@@ -32,11 +32,11 @@
     justify-content: center;
     row-gap: 15px;
     grid-template-areas:
-      "header header"
-      "armor armor-label"
-      "weapon weapon-label"
-      "dye dye-label"
-      "skin-submit skin-submit";
+      "header"
+      "armor"
+      "weapon "
+      "dye "
+      "skin-submit ";
 
     .check-header {
       grid-area: header;
