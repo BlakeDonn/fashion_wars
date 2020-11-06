@@ -1,4 +1,5 @@
 import "./Homepage.scss";
+import {Link} from 'react-router-dom'
 
 export const Homepage = (props) => {
   const skinTypes = () => {
@@ -32,7 +33,7 @@ export const Homepage = (props) => {
               Which skins would you like to find?
             </h3>
             {skinTypes()}
-            <button className="skin-submit">Find skins!</button>
+            <Link to='/results'><button className="skin-submit">Find skins!</button></Link>
           </div>
         </main>
         <footer className="home-footer">Footer Content</footer>

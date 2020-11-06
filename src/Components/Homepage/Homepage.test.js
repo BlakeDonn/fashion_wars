@@ -19,7 +19,6 @@ describe("BrowsePage", () => {
     userEvent.click(screen.getByTestId('weapons-test'))
     userEvent.click(screen.getByTestId('dyes-test'))
     expect(mockSelectionsToUpdate).toHaveBeenCalledTimes(3);
-    screen.debug()
   });
 
 });
