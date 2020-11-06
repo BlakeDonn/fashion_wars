@@ -1,5 +1,6 @@
 import "./Results.scss";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import {getUserSkins, getAllSkins} from "../../apiCalls";
 
 export const Results = () => {
   const [neededSkins, setNeeededSkins] = useState({
@@ -7,12 +8,14 @@ export const Results = () => {
     weapons: [],
     dyes: [],
   })
+  const getNeededSkins = async () => {
+    const res = await getUserSkins()
+    console.log(res)
+  }
+  useEffect(() => {
+    getNeededSkins()
+  }, [])
 
-  const updateUserSkins = (e) => {
-    let selectionsToUpdate = selections;
-    selectionsToUpdate.userSkins =
-      setSelections(selectionsToUpdate);
-  };
   return (
     <div className="results">
       <header className='results-header'>

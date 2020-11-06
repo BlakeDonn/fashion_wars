@@ -23,7 +23,7 @@ export const App = () => {
           <Homepage updateSelections={updateSelections} />
         </Route>
         <Route exact path="/results">
-          <Results />
+          <Results selectedSkins={selections} />
         </Route>
       </header>
     </div>
