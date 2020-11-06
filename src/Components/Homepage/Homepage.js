@@ -3,17 +3,18 @@ import "./Homepage.scss";
 export const Homepage = (props) => {
   const skinTypes = () => {
     let skins = ["armor", "weapons", "dyes"];
-    return skins.map((skin) => {
+    return skins.map((skin, i) => {
       return (
         <div className={skin}>
           <input
+            key={i}
             type="checkbox"
             className={skin}
+            data-testid={`${skin}-test`}
             name={skin}
             onClick={(e) => props.updateSelections(e)}
-            data-testid={`${skin}-test`}
           ></input>
-          <label for="armor" className={`${skin}-label`}>
+          <label htmlFor="armor" className={`${skin}-label`}>
             {skin}
           </label>
         </div>
