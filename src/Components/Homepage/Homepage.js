@@ -1,6 +1,24 @@
 import "./Homepage.scss";
 
 export const Homepage = (props) => {
+  const skinTypes = () => {
+    let skins = ["armor", "weapons", "dyes"];
+    return skins.map((skin) => {
+      return (
+        <div className={skin}>
+          <input
+            type="checkbox"
+            className={skin}
+            name={skin}
+            onClick={(e) => props.updateSelections(e)}
+          ></input>
+          <label for="armor" className={`${skin}-label`}>
+            {skin}
+          </label>
+        </div>
+      );
+    });
+  };
   return (
     <div className="parent">
       <section className="container">
@@ -8,14 +26,11 @@ export const Homepage = (props) => {
         <main className="home-main">
           <h1>Welcome To Fashion Wars !</h1>
           <div className="checkbox-container">
-            <h3 className="check-header">Which skins would you like to find?</h3>
-            <input type="checkbox" className="armor" name="armor" value="armor" onChange={(e) => props.updateSelections(e)}></input>
-            <label for="armor" className="armor-label" >Armor</label>
-            <input type="checkbox" className="weapons" name="weapons" onChange={(e) => props.updateSelections(e)}></input>
-            <label for="weapons" className="weapons-label" >Weapons</label>
-            <input type="checkbox" className="dyes" name="dyes" onChange={(e) => props.updateSelections(e)}></input>
-            <label for="dyes" className="dyes-label">Dyes</label>
-            <button className='skin-submit'>Find skins!</button>
+            <h3 className="check-header">
+              Which skins would you like to find?
+            </h3>
+            {skinTypes()}
+            <button className="skin-submit">Find skins!</button>
           </div>
         </main>
         <footer className="home-footer">Footer Content</footer>
