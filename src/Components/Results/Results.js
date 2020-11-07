@@ -13,27 +13,39 @@ export const Results = (props) => {
   };
   const filterSkinsByType = async (skins) => {
     const allNeededSkins = await getNeededSkins();
-    //let counter = Math.floor(allNeededSkins.length / 200);
-    let counter = 3
+    let counter = Math.floor(allNeededSkins.length / 100);
     let i = 1;
-    let start = 0
+    let start = 0;
+    let end = 200;
     let stateHolder = {
-      armor: [],
-      weapons: [],
-      dyes: [],
+      Armor: [],
+      Weapon: [],
+      Back: [],
+      Gathering: []
     }
     while (i < counter) {
-      const joinedSkins = allNeededSkins.join(",").slice(start, 200);
+      const joinedSkins = allNeededSkins.join(",").slice(start, end);
       const skinsForUser = await getFilteredSkins(joinedSkins);
-      skinsForUser.forEach(skin => stateHolder[skin.type].push(skin))
+      skinsForUser.forEach(skin => {
+        if (props.match.params.results.includes(skin.type)) {
+          return stateHolder[skin.type].push(skin)
+        }
+        return
+      })
       i++
       start += 200
+      end += 200
     }
+    return stateHolder
   }
   useEffect(() => {
     console.log(props.match.params);
-    filterSkinsByType();
-  });
+    const getSkins = async () => {
+      let userSkins = await filterSkinsByType()
+      setNeeededSkins({userSkins})
+    }
+    getSkins()
+  }, []);
 
   return (
     <div className="results">
