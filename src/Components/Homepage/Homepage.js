@@ -15,7 +15,7 @@ export const Homepage = (props) => {
   };
   const determineStateToPost = () => {
     const choices = Object.keys(selections)
-    const finalChoices = choices.map(selection => selections[selection] ? selection : null)
+    const finalChoices = choices.filter(selection => selections[selection])
     return `/results/${finalChoices}`;
   };
   const skinTypes = () => {
