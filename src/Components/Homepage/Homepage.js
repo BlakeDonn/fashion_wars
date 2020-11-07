@@ -18,6 +18,7 @@ export const Homepage = (props) => {
     const finalChoices = choices.filter(selection => selections[selection])
     return `/results/${finalChoices}`;
   };
+
   const skinTypes = () => {
     let skins = ["Armor", "Weapons", "Back"];
     return skins.map((skin, i) => {
