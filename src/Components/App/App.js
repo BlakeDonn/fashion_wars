@@ -10,7 +10,7 @@ export const App = () => {
         <Route exact path="/">
           <Homepage />
         </Route>
-        <Route exact path="/results/:skins" component={Results} />
+        <Route exact path="/results/:results" component={Results} />
       </header>
     </div >
   );
