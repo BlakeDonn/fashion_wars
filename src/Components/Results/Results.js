@@ -1,9 +1,27 @@
 import "./Results.scss";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls";
 
 export const Results = (props) => {
-  const [neededSkins, setNeeededSkins] = useState('{}');
+  const mounted = useRef()
+  const [neededSkins, setNeeededSkins] = useState({
+    Armor: [],
+    Weapon: [],
+    Back: []
+  });
+
+  useEffect(() => {
+    console.log(props.match.params);
+    if (!mounted.current) {
+      const getSkins = async () => {
+        let neededSkins = await filterSkinsByType()
+        setNeeededSkins({neededSkins})
+      }
+      getSkins()
+      mounted.current = true;
+    }
+  });
+
   const getNeededSkins = async () => {
     const userSkins = await getUserSkins();
     const allSkins = await getAllSkins();
@@ -11,6 +29,7 @@ export const Results = (props) => {
       return !userSkins.includes(skin);
     });
   };
+
   const filterSkinsByType = async (skins) => {
     const allNeededSkins = await getNeededSkins();
     let counter = Math.floor(allNeededSkins.length / 100);
@@ -38,21 +57,20 @@ export const Results = (props) => {
     }
     return stateHolder
   }
-  useEffect(() => {
-    console.log(props.match.params);
-    const getSkins = async () => {
-      let userSkins = await filterSkinsByType()
-      setNeeededSkins({userSkins})
-    }
-    getSkins()
-  }, []);
+
+  const displaySkins = (skinType) => {
+    return neededSkins.neededSkins[skinType].map(skin => <li>{skin.name}</li>)
+  }
 
   return (
     <div className="results">
       <header className="results-header">
         <h1>Skins you need to unlock!</h1>
       </header>
-      <div className="left-sidebar">right-side-for-armor</div>
+      <div className="left-sidebar">
+        <h3>right-side-for-armor</h3>
+        <ul>{mounted.current && displaySkins("Armor")}</ul>
+      </div>
       <main className="results-main">right-side-for-weapons</main>
       <div className="right-sidebar">right-side-for-dyes</div>
       <footer className="results-footer"></footer>
