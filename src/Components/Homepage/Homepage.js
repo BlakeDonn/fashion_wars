@@ -6,7 +6,7 @@ export const Homepage = (props) => {
   const [selections, setSelections] = useState({
     armor: false,
     weapons: false,
-    dyes: false,
+    back: false,
   });
   const updateSelections = (e) => {
     let selectionsToUpdate = selections;
@@ -14,10 +14,12 @@ export const Homepage = (props) => {
     setSelections(selectionsToUpdate);
   };
   const determineStateToPost = () => {
-    return `/results/${Object.values(selections)}`;
+    const choices = Object.keys(selections)
+    const finalChoices = choices.map(selection => selections[selection] ? selection : null)
+    return `/results/${finalChoices}`;
   };
   const skinTypes = () => {
-    let skins = ["armor", "weapons", "dyes"];
+    let skins = ["armor", "weapons", "back"];
     return skins.map((skin, i) => {
       return (
         <div className={skin}>
