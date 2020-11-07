@@ -46,7 +46,7 @@ export const Results = (props) => {
       const joinedSkins = allNeededSkins.join(",").slice(start, end);
       const skinsForUser = await getFilteredSkins(joinedSkins);
       skinsForUser.forEach(skin => {
-        if (props.match.params.results.includes(skin.type)) {
+        if (props.match.params.results.includes(skin.type) && skin.name) {
           return stateHolder[skin.type].push(skin)
         }
         return
@@ -59,7 +59,10 @@ export const Results = (props) => {
   }
 
   const displaySkins = (skinType) => {
-    return neededSkins.neededSkins[skinType].map(skin => <li>{skin.name}</li>)
+    if (neededSkins.neededSkins) {
+      return neededSkins.neededSkins[skinType].map(skin => <li>{skin.name}</li>)
+    }
+    return <h3>Loading</h3>
   }
 
   return (
@@ -68,11 +71,17 @@ export const Results = (props) => {
         <h1>Skins you need to unlock!</h1>
       </header>
       <div className="left-sidebar">
-        <h3>right-side-for-armor</h3>
+        <h3>Armor</h3>
         <ul>{mounted.current && displaySkins("Armor")}</ul>
       </div>
-      <main className="results-main">right-side-for-weapons</main>
-      <div className="right-sidebar">right-side-for-dyes</div>
+      <main className="results-main">
+        <h3>Backpieces</h3>
+        <ul>{mounted.current && displaySkins("Back")}</ul>
+      </main>
+      <div className="right-sidebar">
+        <h3>Weapons</h3>
+        <ul>{mounted.current && displaySkins("Weapon")}</ul>
+      </div>
       <footer className="results-footer"></footer>
     </div>
   );
