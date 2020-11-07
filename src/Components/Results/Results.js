@@ -1,6 +1,6 @@
 import "./Results.scss";
 import React, {useState, useEffect} from "react";
-import {getUserSkins, getAllSkins} from "../../apiCalls";
+import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls";
 
 export const Results = (props) => {
   const [neededSkins, setNeeededSkins] = useState({
@@ -11,20 +11,19 @@ export const Results = (props) => {
   const getNeededSkins = async () => {
     const userSkins = await getUserSkins()
     const allSkins = await getAllSkins()
-    let filteredSkins = allSkins.filter(skin => {
+    return allSkins.filter(skin => {
       return !userSkins.includes(skin)
     })
-    console.log(filteredSkins)
-    //const joined = res.join(',')
-    //filterSkinsByType(joined.slice(0, 100))
   }
   const filterSkinsByType = async (skins) => {
-    //const res = await getAllSkins(skins)
-    //console.log(res)
+    const allNeededSkins = await getNeededSkins()
+    const joinedSkins = allNeededSkins.join(',').slice(0, 500)
+    const skinsForUser = await getFilteredSkins(joinedSkins)
+    console.log(skinsForUser)
   }
   useEffect(() => {
     console.log(props.match.params)
-    getNeededSkins()
+    filterSkinsByType()
 
   })
 
