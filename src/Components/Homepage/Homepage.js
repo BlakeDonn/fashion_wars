@@ -4,9 +4,9 @@ import React, {useState} from "react";
 
 export const Homepage = (props) => {
   const [selections, setSelections] = useState({
-    armor: false,
-    weapons: false,
-    back: false,
+    Armor: false,
+    Weapons: false,
+    Back: false,
   });
   const updateSelections = (e) => {
     let selectionsToUpdate = selections;
@@ -19,7 +19,7 @@ export const Homepage = (props) => {
     return `/results/${finalChoices}`;
   };
   const skinTypes = () => {
-    let skins = ["armor", "weapons", "back"];
+    let skins = ["Armor", "Weapons", "Back"];
     return skins.map((skin, i) => {
       return (
         <div className={skin}>
