@@ -1,9 +1,26 @@
 import "./Homepage.scss";
-import {Link} from 'react-router-dom'
+import {Link} from "react-router-dom";
+import React, {useState} from "react";
 
 export const Homepage = (props) => {
+  const [selections, setSelections] = useState({
+    Armor: false,
+    Weapons: false,
+    Back: false,
+  });
+  const updateSelections = (e) => {
+    let selectionsToUpdate = selections;
+    selectionsToUpdate[e.target.name] = !selectionsToUpdate[e.target.name];
+    setSelections(selectionsToUpdate);
+  };
+  const determineStateToPost = () => {
+    const choices = Object.keys(selections)
+    const finalChoices = choices.filter(selection => selections[selection])
+    return `/results/${finalChoices}`;
+  };
+
   const skinTypes = () => {
-    let skins = ["armor", "weapons", "dyes"];
+    let skins = ["Armor", "Weapons", "Back"];
     return skins.map((skin, i) => {
       return (
         <div className={skin}>
@@ -11,11 +28,11 @@ export const Homepage = (props) => {
             key={i}
             type="checkbox"
             className={skin}
-            data-testid={`${skin}-test`}
+            data-testid={`${skin} -test`}
             name={skin}
-            onClick={(e) => props.updateSelections(e)}
+            onClick={updateSelections}
           ></input>
-          <label htmlFor="armor" className={`${skin}-label`}>
+          <label htmlFor="armor" className={`${skin} -label`}>
             {skin}
           </label>
         </div>
@@ -33,7 +50,9 @@ export const Homepage = (props) => {
               Which skins would you like to find?
             </h3>
             {skinTypes()}
-            <Link to='/results'><button className="skin-submit">Find skins!</button></Link>
+            <Link to={determineStateToPost}>
+              <button className="skin-submit">Find skins!</button>
+            </Link>
           </div>
         </main>
         <footer className="home-footer">Footer Content</footer>
