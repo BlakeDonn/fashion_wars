@@ -48,6 +48,14 @@ describe("Results", () => {
     expect(screen.getByText(/Bifrost/i)).toBeInTheDocument()
     expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
     expect(screen.getByText(/Ad-Infinium/i)).toBeInTheDocument()
+  });
+
+  it("Should only load the selections the user has made", async () => {
+    act(() => {
+      render(<Results match={{params: {results: "Armor"}}} />)
+    });
+    await waitFor(() => expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument())
+    expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
     screen.debug()
   });
 

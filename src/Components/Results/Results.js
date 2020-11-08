@@ -11,7 +11,6 @@ export const Results = (props) => {
   });
 
   useEffect(() => {
-    console.log(props.match.params);
     if (!mounted.current) {
       const getSkins = async () => {
         let neededSkins = await filterSkinsByType()
@@ -33,6 +32,7 @@ export const Results = (props) => {
   const filterSkinsByType = async (skins) => {
     const allNeededSkins = await getNeededSkins();
     let counter = Math.floor(allNeededSkins.length / 100);
+    console.log(counter)
     let i = 1;
     let start = 0;
     let end = 200;
