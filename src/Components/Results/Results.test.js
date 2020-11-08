@@ -1,55 +1,50 @@
 import {Results} from "./Results";
 import {render, screen, waitFor} from "@testing-library/react";
+import {act} from 'react-dom/test-utils'
 import {MemoryRouter} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls.js";
 jest.mock("../../apiCalls.js");
+const filterSkinsByType = jest.fn()
 
-getUserSkins.mockResolvedValue([120, 121, 122, 123, 124, 129])
-getAllSkins.mockResolvedValue([120, 121, 122, 127, 128, 130])
-getFilteredSkins.mockResolvedValue([
-  {
-    "name": "Bifrost",
-    "type": "Weapon",
-    "id": 127,
-  },
-  {
-    "name": "Invisible Boots",
-    "type": "Armor",
-    "id": 128,
-  },
-  {
-    "name": "Ad-Infinium",
-    "type": "Back",
-    "id": 130,
-  }
-])
+
+beforeEach(() => {
+  getUserSkins.mockResolvedValue(new Array(200).fill().map((_, i) => (i)))
+  getAllSkins.mockResolvedValue(new Array(400).fill().map((_, i) => (i)))
+  getFilteredSkins.mockResolvedValue([
+    {
+      "name": "Bifrost",
+      "type": "Weapon",
+    },
+    {
+      "name": "Invisible Boots",
+      "type": "Armor",
+    },
+    {
+      "name": "Ad-Infinium",
+      "type": "Back",
+    }
+  ])
+})
+
 
 describe("Results", () => {
   it("Results page should render with headers", async () => {
-    render(
-      <MemoryRouter>
-        <Results match={{params: {results: "Armor,Weapons,Back"}}} />
-      </MemoryRouter>
-    );
+    act(() => {
+      render(<Results match={{params: {results: "Armor,Weapons,Back"}}} />)
+    });
     expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument();
     expect(screen.getByText(/Armor/i)).toBeInTheDocument();
     expect(screen.getByText(/Backpieces/i)).toBeInTheDocument();
     expect(screen.getByText(/Weapons/i)).toBeInTheDocument();
-    screen.debug()
   });
 
   it("Should render with user selected skins after mount", async () => {
-    render(
-      <MemoryRouter>
-        <Results match={{params: {results: "Armor,Weapons,Back"}}} />
-      </MemoryRouter>
-    );
-    expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument();
-    expect(screen.getByText(/Armor/i)).toBeInTheDocument();
-    expect(screen.getByText(/Backpieces/i)).toBeInTheDocument();
-    expect(screen.getByText(/Weapons/i)).toBeInTheDocument();
+    act(() => {
+      render(<Results match={{params: {results: "Armor,Weapons,Back"}}} />)
+    });
+    await waitFor(() => expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument())
     screen.debug()
   });
 });
