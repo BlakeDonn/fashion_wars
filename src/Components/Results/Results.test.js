@@ -6,8 +6,6 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls.js";
 jest.mock("../../apiCalls.js");
-const filterSkinsByType = jest.fn()
-
 
 beforeEach(() => {
   getUserSkins.mockResolvedValue(new Array(200).fill().map((_, i) => (i)))
