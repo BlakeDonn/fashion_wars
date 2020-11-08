@@ -44,7 +44,11 @@ describe("Results", () => {
     act(() => {
       render(<Results match={{params: {results: "Armor,Weapons,Back"}}} />)
     });
-    await waitFor(() => expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText(/Bifrost/i)).toBeInTheDocument())
+    expect(screen.getByText(/Bifrost/i)).toBeInTheDocument()
+    expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
+    expect(screen.getByText(/Ad-Infinium/i)).toBeInTheDocument()
     screen.debug()
   });
+
 });
