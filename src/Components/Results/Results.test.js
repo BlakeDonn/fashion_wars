@@ -54,7 +54,6 @@ describe("Results", () => {
     });
     await waitFor(() => expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument())
     expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
-    screen.debug()
   });
 
 });
