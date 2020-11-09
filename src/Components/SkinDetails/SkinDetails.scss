@@ -1,0 +1,39 @@
+@import "../../styles/variables.scss";
+.skin-details {
+  background-color: $homeBlue;
+  display: grid;
+  grid-template-columns: 1fr minmax(150px, 25%) ;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+.sidebar {
+  text-align: center;
+  padding: 1rem;
+}
+
+.content {
+  margin-left: 15%;
+  margin-top: 5%;
+  padding: 1rem;
+   place-items: center;
+  width: 35vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  background: $homeGreen;
+}
+
+.icon {
+  height: 100px;
+  width: 100%;
+  background: wheat;
+  margin: 0.5rem 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+

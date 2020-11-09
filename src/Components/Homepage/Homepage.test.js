@@ -13,19 +13,20 @@ describe("BrowsePage", () => {
     expect(screen.getByText(/Fashion/i)).toBeInTheDocument();
     expect(screen.getByText(/Armor/i)).toBeInTheDocument();
     expect(screen.getByText(/Weapons/i)).toBeInTheDocument();
-    expect(screen.getByText(/Dyes/i)).toBeInTheDocument();
+    expect(screen.getByText(/Back/i)).toBeInTheDocument();
   });
 
-  it("Checkbox should fire selectionsToUpdate", async () => {
-    const mockSelectionsToUpdate = jest.fn();
+  it.skip("Checkbox should fire selectionsToUpdate", async () => {
+    const updateSelections = jest.fn();
     render(
       <MemoryRouter>
-        <Homepage updateSelections={mockSelectionsToUpdate} />
+        <Homepage updateSelection={updateSelections} />
       </MemoryRouter>
     );
-    userEvent.click(screen.getByTestId("armor-test"));
-    userEvent.click(screen.getByTestId("weapons-test"));
-    userEvent.click(screen.getByTestId("dyes-test"));
-    expect(mockSelectionsToUpdate).toHaveBeenCalledTimes(3);
+    userEvent.click(screen.getByTestId("Armor-test"));
+    userEvent.click(screen.getByTestId("Weapons-test"));
+    userEvent.click(screen.getByTestId("Back-test"));
+    expect(updateSelections).toHaveBeenCalledTimes(3);
+    screen.debug()
   });
 });

@@ -29,32 +29,28 @@ beforeEach(() => {
 
 describe("Results", () => {
   it("Results page should render with headers", async () => {
-    act(() => {
-      render(<Results match={{params: {results: "Armor,Weapons,Back"}}} />)
-    });
+
+    render(
+      <MemoryRouter><Results match={{params: {results: "Armor,Weapons,Back"}}} /></MemoryRouter>)
     expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument();
     expect(screen.getByText(/Armor/i)).toBeInTheDocument();
     expect(screen.getByText(/Backpieces/i)).toBeInTheDocument();
     expect(screen.getByText(/Weapons/i)).toBeInTheDocument();
+    screen.debug()
   });
 
   it("Should render with user selected skins after mount", async () => {
-    act(() => {
-      render(<Results match={{params: {results: "Armor,Weapons,Back"}}} />)
-    });
-    await waitFor(() => expect(screen.getByText(/Bifrost/i)).toBeInTheDocument())
-    expect(screen.getByText(/Bifrost/i)).toBeInTheDocument()
-    expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
-    expect(screen.getByText(/Ad-Infinium/i)).toBeInTheDocument()
+    render(<MemoryRouter><Results match={{params: {results: "Armor,Weapons,Back"}}} /></MemoryRouter>)
+    await waitFor(() => expect(screen.getByAltText(/Bifrost/i)).toBeInTheDocument())
+    expect(screen.getByAltText(/Bifrost/i)).toBeInTheDocument()
+    expect(screen.getByAltText(/Invisible Boots/i)).toBeInTheDocument()
+    expect(screen.getByAltText(/Ad-Infinium/i)).toBeInTheDocument()
   });
 
   it("Should only load the selections the user has made", async () => {
-    act(() => {
-      render(<Results match={{params: {results: "Armor"}}} />)
-    });
-    await waitFor(() => expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument())
-    expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
-    screen.debug()
+    render(<MemoryRouter><Results match={{params: {results: "Armor"}}} /></MemoryRouter>)
+    await waitFor(() => expect(screen.getByAltText(/Invisible Boots/i)).toBeInTheDocument())
+    expect(screen.getByAltText(/Invisible Boots/i)).toBeInTheDocument()
   });
 
 });

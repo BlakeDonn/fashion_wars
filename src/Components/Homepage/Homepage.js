@@ -28,7 +28,7 @@ export const Homepage = (props) => {
             key={i}
             type="checkbox"
             className={skin}
-            data-testid={`${skin} -test`}
+            data-testid={`${skin}-test`}
             name={skin}
             onClick={updateSelections}
           ></input>
