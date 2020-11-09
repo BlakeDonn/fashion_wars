@@ -43,9 +43,9 @@ describe("BrowsePage", () => {
     userEvent.click(screen.getByTestId("Back-test"));
     userEvent.click(screen.getByRole('button', {name: 'Find skins!'}));
     await waitFor(() => expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument())
-    expect(screen.getByText(/Bifrost/i)).toBeInTheDocument()
-    expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
-    expect(screen.getByText(/Ad-Infinium/i)).toBeInTheDocument()
+    expect(screen.getByAltText(/Bifrost/i)).toBeInTheDocument()
+    expect(screen.getByAltText(/Invisible Boots/i)).toBeInTheDocument()
+    expect(screen.getByAltText(/Ad-Infinium/i)).toBeInTheDocument()
   });
 
   it("User should only see the categories they select", async () => {
@@ -74,6 +74,6 @@ describe("BrowsePage", () => {
     userEvent.click(screen.getByTestId("Weapons-test"));
     userEvent.click(screen.getByRole('button', {name: 'Find skins!'}));
     await waitFor(() => expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument())
-    expect(screen.getByText(/Bifrost/i)).toBeInTheDocument()
+    expect(screen.getByAltText(/Bifrost/i)).toBeInTheDocument()
   });
 });
