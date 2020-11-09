@@ -39,21 +39,6 @@ describe('renders with Skin', () => {
     expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
   });
 
-  it("Should have a clickable icon to bring to wiki", () => {
-    const testTry =
-    {
-      details: {
-        type: "Boots",
-        weight_class: "Heavy"
-      },
-      "name": "Invisible Boots",
-      "icon": "Test Icon",
-      "type": "Armor",
-      "id": "100"
-    }
-    render(<MemoryRouter><SkinDetails location={{skinDetails: testTry}} /></MemoryRouter>)
-    expect(screen.getByText(/More Info/i).href).toBe("https://wiki.guildwars2.com/wiki/Invisible%20Boots")
-  });
 
   it("Should mount with img src if there is one", async () => {
     getImage.mockResolvedValue("https://wiki.guildwars2.com/SplintCoat")
@@ -91,4 +76,37 @@ describe('renders with Skin', () => {
     expect(screen.getByAltText("No image found, please check wiki link for more info")).toBeInTheDocument()
   });
 
+  it("Should have a clickable icon to bring to wiki", () => {
+    const testTry =
+    {
+      details: {
+        type: "Boots",
+        weight_class: "Heavy"
+      },
+      "name": "Invisible Boots",
+      "icon": "Test Icon",
+      "type": "Armor",
+      "id": "100"
+    }
+    render(<MemoryRouter><SkinDetails location={{skinDetails: testTry}} /></MemoryRouter>)
+    expect(screen.getByTestId(/wiki-icon/i).href).toBe("https://wiki.guildwars2.com/wiki/Invisible%20Boots")
+  });
+
+  it("Should have a clickable icon to add to todo list", () => {
+    const updateList = jest.fn()
+    const testTry =
+    {
+      details: {
+        type: "Boots",
+        weight_class: "Heavy"
+      },
+      "name": "Invisible Boots",
+      "icon": "Test Icon",
+      "type": "Armor",
+      "id": "100"
+    }
+    render(<MemoryRouter><SkinDetails location={{skinDetails: testTry, updateList: updateList}} /></MemoryRouter>)
+    userEvent.click(screen.getByAltText("todo-icon"));
+    expect(updateList).toHaveBeenCalledTimes(1)
+  });
 });
