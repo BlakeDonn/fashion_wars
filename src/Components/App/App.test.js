@@ -82,10 +82,18 @@ describe("BrowsePage", () => {
     getAllSkins.mockResolvedValue(new Array(400).fill().map((_, i) => (i)))
     getFilteredSkins.mockResolvedValue([
       {
+        details: {
+          damage_type: "Physical",
+          type: "Staff",
+        },
         "name": "Bifrost",
         "type": "Weapon",
       },
       {
+        details: {
+          weight_class: "Light",
+          type: "Boots",
+        },
         "name": "Invisible Boots",
         "type": "Armor",
       },
