@@ -32,8 +32,7 @@ export const Results = (props) => {
 
   const filterSkinsByType = async (skins) => {
     const allNeededSkins = await getNeededSkins();
-    //let counter = Math.floor(allNeededSkins.length / 100);
-    let counter = 3
+    let counter = Math.floor(allNeededSkins.length / 100);
     let i = 1;
     let start = 0;
     let end = 200;
@@ -69,21 +68,22 @@ export const Results = (props) => {
   return (
     <div className="results">
       <header className="results-header">
-        <h1>Skins you need to unlock!</h1>
+        <h1 className={'header-h1'}>Skins you need to unlock!</h1>
+        <div className="header-container">
+          <h3>Armor</h3>
+          <h3>Backpieces</h3>
+          <h3>Weapons</h3>
+        </div>
       </header>
       <div className="left-sidebar all-bars">
-        <h3>Armor</h3>
         {mounted.current && displaySkins("Armor")}
       </div>
-      <main className="results-main">
-        <h3>Backpieces</h3>
+      <main className="results-main all-bars">
         {mounted.current && displaySkins("Back")}
       </main>
-      <div className="right-sidebar">
-        <h3>Weapons</h3>
+      <div className="right-sidebar all-bars">
         {mounted.current && displaySkins("Weapon")}
       </div>
-      <footer className="results-footer"></footer>
     </div>
   );
 };

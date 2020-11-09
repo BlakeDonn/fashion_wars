@@ -2,12 +2,19 @@
 .results {
   display: grid;
   height: 100vh;
-  grid-template: auto 1fr auto / auto auto auto
+  grid-template: auto 1fr auto / auto auto auto;
 }
 
-// etc
+.header-h1 {
+  text-align: center;
+}
+.header-container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
-.all-bars{
+.all-bars {
   display: grid;
   height: 100vh;
   grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
@@ -26,13 +33,11 @@
 }
 
 .results-main {
-  text-align:center;
   background: $homeRed;
   grid-column: 2 / 3;
 }
 
 .right-sidebar {
-  text-align:center;
   background: $homeGreen;
   grid-column: 3 / 4;
 }
@@ -47,4 +52,3 @@
 .results {
   font-family: system-ui, sans-serif;
 }
-
