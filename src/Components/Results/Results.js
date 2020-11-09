@@ -22,7 +22,6 @@ export class Results extends Component {
     })
   }
 
-
   getNeededSkins = async () => {
     const userSkins = await getUserSkins();
     const allSkins = await getAllSkins();
@@ -41,7 +40,6 @@ export class Results extends Component {
       Armor: [],
       Weapon: [],
       Back: [],
-      Gathering: []
     }
     while (i < counter) {
       const joinedSkins = allNeededSkins.join(",").slice(start, end);
