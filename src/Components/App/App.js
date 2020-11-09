@@ -9,8 +9,8 @@ export const App = () => {
     <div className="App">
       <header className="">
         <Route exact path="/"><Homepage /></Route>
-        <Route exact path="/results/:results" component={Results} />
-        <Route exact path="/skin/:id" component={SkinDetails} />
+        <Route exact path="/results/skins/:id" component={SkinDetails} />
+        <Route path="/results/:results" component={Results} />
       </header>
     </div >
   );
