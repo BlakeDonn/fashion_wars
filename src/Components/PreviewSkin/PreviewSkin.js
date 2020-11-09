@@ -7,6 +7,7 @@ export const PreviewSkin = (props) => {
         to={{
           pathname: `/results/skins/${props.details.id}`,
           skinDetails: props.details,
+          updateList: props.updateList
         }}
       >
         <img
