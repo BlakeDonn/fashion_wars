@@ -104,6 +104,10 @@ describe("BrowsePage", () => {
     userEvent.click(screen.getByRole('button', {name: 'Find skins!'}));
     await waitFor(() => expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument())
     userEvent.click(screen.getByAltText(/Bifrost/i))
-    screen.debug()
+    expect(screen.getByText(/Bifrost/i)).toBeInTheDocument()
+    expect(screen.getByText(/More Info/i)).toBeInTheDocument()
+
+
+
   });
 });
