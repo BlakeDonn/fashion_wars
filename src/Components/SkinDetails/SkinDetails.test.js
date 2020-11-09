@@ -53,8 +53,22 @@ describe('renders with Skin', () => {
       "id": "250"
     }
     render(<MemoryRouter><SkinDetails location={{skinDetails: testTry}} /></MemoryRouter>)
-
-    await waitFor(() => expect(screen.getByAltText("Splint Coat set preview")).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByTestId("preview-test").src).toBe("https://wiki.guildwars2.com/SplintCoat"))
     expect(screen.getByAltText("Splint Coat set preview")).toBeInTheDocument()
+  });
+
+
+  it("Should display image not found if bad url path", async () => {
+    getImage.mockResolvedValue("https://i.imgur.com/aAjAlP7.png")
+    const testTry =
+    {
+      "name": "Splint Coat",
+      "icon": "Test Icon",
+      "type": "Weapon",
+      "id": "250"
+    }
+    render(<MemoryRouter><SkinDetails location={{skinDetails: testTry}} /></MemoryRouter>)
+    await waitFor(() => expect(screen.getByTestId("preview-test").src).toBe("https://i.imgur.com/aAjAlP7.png"))
+    expect(screen.getByAltText("No image found, please check wiki link for more info")).toBeInTheDocument()
   });
 });
