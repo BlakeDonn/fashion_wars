@@ -30,4 +30,16 @@ describe('renders with Skin', () => {
     expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
   });
 
+  it("Should have a clickable icon to brin to wiki", () => {
+    const testTry =
+    {
+      "name": "Invisible Boots",
+      "icon": "Test Icon",
+      "type": "Armor",
+      "id": "100"
+    }
+    render(<MemoryRouter><SkinDetails location={{skinDetails: testTry}} /></MemoryRouter>)
+    expect(screen.getByText(/More Info/i).href).toBe("https://wiki.guildwars2.com/wiki/Invisible%20Boots")
+    screen.debug()
+  });
 });
