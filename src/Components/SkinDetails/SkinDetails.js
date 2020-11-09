@@ -16,10 +16,15 @@ export class SkinDetails extends Component {
     this.setState({url: imageUrl})
   }
   determineImageDetails = () => {
+    if (!this.state.url.length) {
+      return
+    }
     if (this.state.url.includes('wiki')) {
       return `${this.state.skinSpecs.name} set preview`
     }
-    return 'No image found, please check wiki link for more info'
+    if (this.state.url.includes('imgur')) {
+      return 'No image found, please check wiki link for more info'
+    }
   }
   render() {
     return (
@@ -32,7 +37,7 @@ export class SkinDetails extends Component {
           <a href={`https://wiki.guildwars2.com/wiki/${this.state.skinSpecs.name}`}><img src={this.state.skinSpecs.icon} alt={this.state.skinSpecs.name} /></a>
           <a href={`https://wiki.guildwars2.com/wiki/${this.state.skinSpecs.name}`}>More info</a>
         </div>
-        <img className={"sidebar"} src={this.state.url} alt={this.determineImageDetails()} />
+        {this.state.url && <img className={"sidebar"} src={this.state.url} data-testid={"preview-test"} alt={this.determineImageDetails()} />}
       </div>
     );
   }
