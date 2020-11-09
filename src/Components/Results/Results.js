@@ -71,7 +71,7 @@ export const Results = (props) => {
       <header className="results-header">
         <h1>Skins you need to unlock!</h1>
       </header>
-      <div className="left-sidebar">
+      <div className="left-sidebar all-bars">
         <h3>Armor</h3>
         {mounted.current && displaySkins("Armor")}
       </div>
