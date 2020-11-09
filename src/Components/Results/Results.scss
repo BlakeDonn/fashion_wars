@@ -42,11 +42,22 @@
   grid-column: 3 / 4;
 }
 
-.results-footer {
-  background: $homeBlue;
-  padding: 2rem;
+.results-h1 {
+  display:grid;
+}
+
+.button {
+  justify-self:center;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
   text-align: center;
-  grid-column: 1 / 4;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .results {

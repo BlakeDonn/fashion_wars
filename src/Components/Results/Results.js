@@ -1,6 +1,7 @@
 import "./Results.scss";
 import {PreviewSkin} from "../PreviewSkin/PreviewSkin";
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
 import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls";
 
 export class Results extends Component {
@@ -11,17 +12,17 @@ export class Results extends Component {
       Weapon: [],
       Back: [],
       userList: [],
-      SelectedCategories: props.match.params.results
+      SelectedCategories: props.match.params.results,
     };
   }
   componentDidMount = async () => {
-    let neededSkins = await this.filterSkinsByType()
+    let neededSkins = await this.filterSkinsByType();
     this.setState({
       Armor: neededSkins.Armor,
       Weapon: neededSkins.Weapon,
       Back: neededSkins.Back,
-    })
-  }
+    });
+  };
 
   getNeededSkins = async () => {
     const userSkins = await getUserSkins();
@@ -31,7 +32,7 @@ export class Results extends Component {
     });
   };
 
-  filterSkinsByType = async (skins) => {
+  filterSkinsByType = async () => {
     const allNeededSkins = await this.getNeededSkins();
     let counter = Math.floor(allNeededSkins.length / 100);
     let i = 1;
@@ -41,43 +42,53 @@ export class Results extends Component {
       Armor: [],
       Weapon: [],
       Back: [],
-    }
+    };
     while (i < counter) {
       const joinedSkins = allNeededSkins.join(",").slice(start, end);
       const skinsForUser = await getFilteredSkins(joinedSkins);
       skinsForUser.forEach(async (skin) => {
         if (this.state.SelectedCategories.includes(skin.type) && skin.name) {
-          return stateHolder[skin.type].push(skin)
+          return stateHolder[skin.type].push(skin);
         }
-        return
-      })
-      i++
-      start += 200
-      end += 200
+        return;
+      });
+      i++;
+      start += 200;
+      end += 200;
     }
-    return stateHolder
-  }
-
+    return stateHolder;
+  };
 
   displaySkins = (skinType) => {
     if (this.state.SelectedCategories.includes(skinType)) {
       if (this.state[skinType].length) {
-        return this.state[skinType].map(skin => <PreviewSkin details={skin} updateList={this.updateList} />)
+        return this.state[skinType].map((skin) => (
+          <PreviewSkin details={skin} updateList={this.updateList} />
+        ));
       }
-      return <h3>Loading</h3>
+      return <h3>Loading</h3>;
     }
-  }
+  };
 
   updateList = (skin) => {
-    console.log(skin)
-    this.setState({userList: [...this.state.userList, skin]})
-  }
+    console.log(skin);
+    this.setState({userList: [...this.state.userList, skin]});
+  };
 
   render() {
     return (
       <div className="results">
         <header className="results-header">
-          <h1 className="header-h1">Skins you need to unlock!</h1>
+          <div className="results-h1">
+            <h1 className="header-h1">Skins you need to unlock!</h1>
+            <Link
+              to={{
+                pathname: "/todo",
+                todoSkins: this.state.userList,
+              }}
+              className="button"
+            >View Todo List</Link>
+          </div>
           <div className="header-container">
             <h3>Armor</h3>
             <h3>Backpieces</h3>
@@ -96,4 +107,4 @@ export class Results extends Component {
       </div>
     );
   }
-};
+}
