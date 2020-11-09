@@ -31,7 +31,7 @@ describe('renders with Skin', () => {
     expect(screen.getByText(/Invisible Boots/i)).toBeInTheDocument()
   });
 
-  it("Should have a clickable icon to brin to wiki", () => {
+  it("Should have a clickable icon to bring to wiki", () => {
     const testTry =
     {
       "name": "Invisible Boots",
@@ -57,7 +57,6 @@ describe('renders with Skin', () => {
     expect(screen.getByAltText("Splint Coat set preview")).toBeInTheDocument()
   });
 
-
   it("Should display image not found if bad url path", async () => {
     getImage.mockResolvedValue("https://i.imgur.com/aAjAlP7.png")
     const testTry =
@@ -71,4 +70,6 @@ describe('renders with Skin', () => {
     await waitFor(() => expect(screen.getByTestId("preview-test").src).toBe("https://i.imgur.com/aAjAlP7.png"))
     expect(screen.getByAltText("No image found, please check wiki link for more info")).toBeInTheDocument()
   });
+
+
 });
