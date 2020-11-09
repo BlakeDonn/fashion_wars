@@ -5,6 +5,7 @@
   grid-template-columns: 1fr minmax(150px, 25%) ;
   padding: 0;
   margin: 0;
+  height: 100vh;
 }
 
 .sidebar {
@@ -13,10 +14,15 @@
 }
 
 .content {
+  margin-left: 15%;
+  margin-top: 5%;
+  padding: 1rem;
+   place-items: center;
+  width: 35vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: lightpink;
+  background: $homeGreen;
 }
 
 .icon {
@@ -26,6 +32,8 @@
   margin: 0.5rem 0;
 }
 
-body {
-  font-family: system-ui, serif;
+h1 {
+  font-size: 1.5rem;
 }
+
+
