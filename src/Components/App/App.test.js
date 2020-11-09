@@ -106,8 +106,5 @@ describe("BrowsePage", () => {
     userEvent.click(screen.getByAltText(/Bifrost/i))
     expect(screen.getByText(/Bifrost/i)).toBeInTheDocument()
     expect(screen.getByText(/More Info/i)).toBeInTheDocument()
-
-
-
   });
 });
