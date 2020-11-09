@@ -25,10 +25,11 @@ export const getFilteredSkins = async (skins) => {
   }
 }
 
-export const getImage = async (skins) => {
+export const getImage = async (name) => {
+  const formattedName = name.split(" ")[0]
   const response = await fetch('https://fe-cors-proxy.herokuapp.com', {
     headers: {
-      "Target-URL": "https://wiki.guildwars2.com/wiki/Acolyte_armor"
+      "Target-URL": `https://wiki.guildwars2.com/wiki/${formattedName}_armor`
     }
   })
   if (response.ok) {
@@ -36,7 +37,8 @@ export const getImage = async (skins) => {
     let splitResolved = resolved.split('src=')
     let filteresResolved = splitResolved.filter(x => x.includes('height="400"'))
     let imagePath = filteresResolved[0].split(/decoding/gi)[0].slice(1, -1)
-    return imagePath
+    let finalPath = imagePath.slice(0, -1)
+    return `https://wiki.guildwars2.com/${finalPath}`
   } else {
     return response.error
   }
