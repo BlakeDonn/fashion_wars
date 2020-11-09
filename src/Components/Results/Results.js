@@ -68,7 +68,7 @@ export const Results = (props) => {
   return (
     <div className="results">
       <header className="results-header">
-        <h1 className={'header-h1'}>Skins you need to unlock!</h1>
+        <h1 className="header-h1">Skins you need to unlock!</h1>
         <div className="header-container">
           <h3>Armor</h3>
           <h3>Backpieces</h3>
