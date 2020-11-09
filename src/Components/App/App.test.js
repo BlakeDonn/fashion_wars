@@ -76,4 +76,34 @@ describe("BrowsePage", () => {
     await waitFor(() => expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument())
     expect(screen.getByAltText(/Bifrost/i)).toBeInTheDocument()
   });
+
+  it("Use Should be able to click on a preview image and be taken to a new screen", async () => {
+    getUserSkins.mockResolvedValue(new Array(200).fill().map((_, i) => (i)))
+    getAllSkins.mockResolvedValue(new Array(400).fill().map((_, i) => (i)))
+    getFilteredSkins.mockResolvedValue([
+      {
+        "name": "Bifrost",
+        "type": "Weapon",
+      },
+      {
+        "name": "Invisible Boots",
+        "type": "Armor",
+      },
+      {
+        "name": "Ad-Infinium",
+        "type": "Back",
+      }
+    ])
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+    userEvent.click(screen.getByTestId("Armor-test"));
+    userEvent.click(screen.getByTestId("Weapons-test"));
+    userEvent.click(screen.getByRole('button', {name: 'Find skins!'}));
+    await waitFor(() => expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument())
+    userEvent.click(screen.getByAltText(/Bifrost/i))
+    screen.debug()
+  });
 });
