@@ -6,7 +6,7 @@ export const PreviewSkin = (props) => {
       <Link
         to={{pathname: `/skin/${props.details.id}`, skinDetails: props.details}}
       >
-        <img src={props.details.icon} alt={props.details.name} />
+        <img src={props.details.icon} alt={props.details.name} className="preview-skin" />
       </Link>
     </div >
   );
