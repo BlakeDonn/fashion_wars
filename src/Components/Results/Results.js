@@ -1,6 +1,6 @@
 import "./Results.scss";
 import {PreviewSkin} from "../PreviewSkin/PreviewSkin";
-import React, {Component, useState, useEffect, useRef} from "react";
+import React, {Component} from "react";
 import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls";
 
 export class Results extends Component {
