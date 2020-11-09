@@ -5,7 +5,7 @@ import React, {useState, useEffect, useRef} from "react";
 export const SkinDetails = (props) => {
   console.log(props.history.location.skinDetails)
   let skinSpecs = props.history.location.skinDetails
-  const mounted = useRef()
+  let mounted = useRef()
   const [skinDetails, setSkinDetails] = useState()
   useEffect(() => {
     if (!mounted.current) {

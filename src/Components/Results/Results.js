@@ -13,6 +13,7 @@ export const Results = (props) => {
 
   useEffect(() => {
     if (!mounted.current) {
+      console.log('yay')
       const getSkins = async () => {
         let neededSkins = await filterSkinsByType()
         setNeeededSkins({neededSkins})
