@@ -17,15 +17,14 @@ export const SkinDetails = (props) => {
     }
   });
   const displaySrc = () => {
-    console.log(skinDetails)
-    return <img src={skinDetails.imageSrc} alt={props.history.location.skinDetails.name} />
+    return <img className={"sidebar"} src={skinDetails.imageSrc} alt={props.history.location.skinDetails.name} />
   }
   return (
-    <div className="preview-skin">
-      <header className="preview-skin-header">
-        <h3>{props.history.location.skinDetails.name}</h3>
-        {mounted.current && displaySrc()}
-      </header>
+    <div className="skin-details">
+      <header className="skin-details-header"></header>
+      <div class="content"></div>
+      <h3>{props.history.location.skinDetails.name}</h3>
+      {mounted.current && displaySrc()}
     </div>
   );
 };
