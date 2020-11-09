@@ -26,14 +26,41 @@ export class SkinDetails extends Component {
       return 'No image found, please check wiki link for more info'
     }
   }
+
+  determineSkinType = () => {
+    if (this.state.skinSpecs.type === "Armor") {
+      return (
+        <div>
+          <p>Type: {this.state.skinSpecs.type}</p>
+          <p>Weight Class: {this.state.skinSpecs.details.weight_class}</p>
+          <p>Armor Type: {this.state.skinSpecs.details.type}</p>
+          <p>Rarity: {this.state.skinSpecs.rarity}</p>
+        </div>
+      )
+    }
+    if (this.state.skinSpecs.type === "Weapon") {
+      return (
+        <div>
+          <p>Type: {this.state.skinSpecs.type}</p>
+          <p>Damage Type: {this.state.skinSpecs.details.damage_type}</p>
+          <p>Weapon Type: {this.state.skinSpecs.details.type}</p>
+          <p>Rarity: {this.state.skinSpecs.rarity}</p>
+        </div>
+      )
+    }
+    return (
+      <div>
+        <p>Type: {this.state.skinSpecs.type}</p>
+        <p>Rarity: {this.state.skinSpecs.rarity}</p>
+      </div>
+    )
+  }
   render() {
     return (
       <div className="skin-details">
         <div className="content">
-          <h1>{this.state.skinSpecs.name}</h1>
-          <p>Type: {this.state.skinSpecs.type}</p>
-          <p>Weight Class: {this.state.skinSpecs.detials && this.state.skinSpecs.details.weight_class}</p>
-          <p>Rarity: {this.state.skinSpecs.rarity}</p>
+          <h3>{this.state.skinSpecs.name}</h3>
+          {this.determineSkinType()}
           <a href={`https://wiki.guildwars2.com/wiki/${this.state.skinSpecs.name}`}><img src={this.state.skinSpecs.icon} alt={this.state.skinSpecs.name} /></a>
           <a href={`https://wiki.guildwars2.com/wiki/${this.state.skinSpecs.name}`}>More info</a>
         </div>
