@@ -1,4 +1,5 @@
 import "./Results.scss";
+import {PreviewSkin} from "../PreviewSkin/PreviewSkin";
 import React, {useState, useEffect, useRef} from "react";
 import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls";
 
@@ -31,7 +32,8 @@ export const Results = (props) => {
 
   const filterSkinsByType = async (skins) => {
     const allNeededSkins = await getNeededSkins();
-    let counter = Math.floor(allNeededSkins.length / 100);
+    //let counter = Math.floor(allNeededSkins.length / 100);
+    let counter = 3
     let i = 1;
     let start = 0;
     let end = 200;
@@ -59,7 +61,7 @@ export const Results = (props) => {
 
   const displaySkins = (skinType) => {
     if (neededSkins.neededSkins) {
-      return neededSkins.neededSkins[skinType].map(skin => <li>{skin.name}</li>)
+      return neededSkins.neededSkins[skinType].map(skin => <PreviewSkin details={skin} />)
     }
     return <h3>Loading</h3>
   }
@@ -71,15 +73,15 @@ export const Results = (props) => {
       </header>
       <div className="left-sidebar">
         <h3>Armor</h3>
-        <ul>{mounted.current && displaySkins("Armor")}</ul>
+        {mounted.current && displaySkins("Armor")}
       </div>
       <main className="results-main">
         <h3>Backpieces</h3>
-        <ul>{mounted.current && displaySkins("Back")}</ul>
+        {mounted.current && displaySkins("Back")}
       </main>
       <div className="right-sidebar">
         <h3>Weapons</h3>
-        <ul>{mounted.current && displaySkins("Weapon")}</ul>
+        {mounted.current && displaySkins("Weapon")}
       </div>
       <footer className="results-footer"></footer>
     </div>
