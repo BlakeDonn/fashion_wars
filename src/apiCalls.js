@@ -35,10 +35,13 @@ export const getImage = async (name) => {
   if (response.ok) {
     let resolved = await response.text()
     let splitResolved = resolved.split('src=')
-    let filteresResolved = splitResolved.filter(x => x.includes('height="400"'))
-    let imagePath = filteresResolved[0].split(/decoding/gi)[0].slice(1, -1)
-    let finalPath = imagePath.slice(0, -1)
-    return `https://wiki.guildwars2.com/${finalPath}`
+    let filteredResolved = splitResolved.filter(x => x.includes('height="400"'))
+    if (filteredResolved.length) {
+      let imagePath = filteredResolved[0].split(/decoding/gi)[0].slice(1, -1)
+      let finalPath = imagePath.slice(0, -1)
+      return `https://wiki.guildwars2.com/${finalPath}`
+    }
+    return "No image found"
   } else {
     return response.error
   }
