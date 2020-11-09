@@ -3,8 +3,8 @@ import {MemoryRouter} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls.js";
-jest.mock("../../apiCalls.js");
 import {App} from "./App";
+jest.mock("../../apiCalls.js");
 
 describe("BrowsePage", () => {
   it("Renders the homepage by default", () => {
