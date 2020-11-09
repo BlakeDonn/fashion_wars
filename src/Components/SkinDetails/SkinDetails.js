@@ -64,8 +64,8 @@ export class SkinDetails extends Component {
           <div className="bottom-buttons">
             <a href={`https://wiki.guildwars2.com/wiki/${this.state.skinSpecs.name}`}><img src={this.state.skinSpecs.icon} alt={this.state.skinSpecs.name} className={"icon"} /></a>
             <p className={"icon-text"}>More info</p>
-            <p onClick={this.props.updateList}><img src={"https://i.imgur.com/YhTbWKz.png"} className={"todo"} alt={"todo-icon"} /></p>
-            <p onClick={this.props.updateList} className={"todo-text"}>Add to list</p>
+            <p onClick={() => this.props.location.updateList(this.state.skinSpecs)}><img src={"https://i.imgur.com/YhTbWKz.png"} className={"todo"} alt={"todo-icon"} /></p>
+            <p className={"todo-text"}>Add to list</p>
           </div>
         </div>
         {this.state.url && <img className={"sidebar"} src={this.state.url} data-testid={"preview-test"} alt={this.determineImageDetails()} />}
