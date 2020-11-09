@@ -2,6 +2,7 @@ import {SkinDetails} from './SkinDetails';
 import {render, screen, waitFor} from "@testing-library/react";
 import {MemoryRouter} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
+import {getImage} from "../../apiCalls";
 import "@testing-library/jest-dom";
 jest.mock("../../apiCalls.js");
 
@@ -40,6 +41,20 @@ describe('renders with Skin', () => {
     }
     render(<MemoryRouter><SkinDetails location={{skinDetails: testTry}} /></MemoryRouter>)
     expect(screen.getByText(/More Info/i).href).toBe("https://wiki.guildwars2.com/wiki/Invisible%20Boots")
-    screen.debug()
+  });
+
+  it("Should mount with img src if there is one", async () => {
+    getImage.mockResolvedValue("https://wiki.guildwars2.com/SplintCoat")
+    const testTry =
+    {
+      "name": "Splint Coat",
+      "icon": "Test Icon",
+      "type": "Weapon",
+      "id": "250"
+    }
+    render(<MemoryRouter><SkinDetails location={{skinDetails: testTry}} /></MemoryRouter>)
+
+    await waitFor(() => expect(screen.getByAltText("Splint Coat set preview")).toBeInTheDocument())
+    expect(screen.getByAltText("Splint Coat set preview")).toBeInTheDocument()
   });
 });
