@@ -1,7 +1,7 @@
 import "./Results.scss";
 import {PreviewSkin} from "../PreviewSkin/PreviewSkin";
 import React, {Component} from "react";
-import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls";
+import {getUserSkins, getAllSkins, getFilteredSkins, getImage} from "../../apiCalls";
 
 export class Results extends Component {
   constructor(props) {
@@ -44,8 +44,9 @@ export class Results extends Component {
     while (i < counter) {
       const joinedSkins = allNeededSkins.join(",").slice(start, end);
       const skinsForUser = await getFilteredSkins(joinedSkins);
-      skinsForUser.forEach(skin => {
+      skinsForUser.forEach(async (skin) => {
         if (this.state.SelectedCategories.includes(skin.type) && skin.name) {
+          skin.url = await getImage(skin.name)
           return stateHolder[skin.type].push(skin)
         }
         return
