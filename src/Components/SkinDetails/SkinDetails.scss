@@ -8,9 +8,22 @@
   height: 100vh;
 }
 
+
 .sidebar {
   text-align: center;
   padding: 1rem;
+  max-width: 10rem;
+}
+
+.bottom-buttons {
+  display: grid;
+  align-items:center;
+  column-gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 50px;
+  grid-template-areas: 
+  "icon todo" 
+  "icon-text todo-text";
 }
 
 .content {
@@ -26,10 +39,24 @@
 }
 
 .icon {
-  height: 100px;
-  width: 100%;
+ max-width:65px;
+ max-height:65px;
   background: wheat;
   margin: 0.5rem 0;
+  grid-area:icon;
+}
+.icon-text{
+  grid-area:icon-text;
+}
+
+.todo{
+ max-width:65px;
+ max-height:65px;
+ grid-area:todo;
+}
+
+.todo-text{
+  grid-area:todo-text;
 }
 
 h1 {
