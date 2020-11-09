@@ -10,6 +10,7 @@ export class Results extends Component {
       Armor: [],
       Weapon: [],
       Back: [],
+      UserList: [],
       SelectedCategories: props.match.params.results
     };
   }
@@ -61,10 +62,14 @@ export class Results extends Component {
   displaySkins = (skinType) => {
     if (this.state.SelectedCategories.includes(skinType)) {
       if (this.state[skinType].length) {
-        return this.state[skinType].map(skin => <PreviewSkin details={skin} />)
+        return this.state[skinType].map(skin => <PreviewSkin details={skin} updateList={this.updateList} />)
       }
       return <h3>Loading</h3>
     }
+  }
+
+  updateList = (skin) => {
+    this.setState({userList: [...this.state.userList, skin]})
   }
 
 
