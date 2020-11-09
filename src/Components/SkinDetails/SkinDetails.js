@@ -1,25 +1,8 @@
 import "./SkinDetails.scss";
-import {getImage} from '../../apiCalls'
-import React, {useState, useEffect, useRef} from "react";
+import React from "react";
 
 export const SkinDetails = (props) => {
-  console.log(props.history.location.skinDetails)
-  let skinSpecs = props.history.location.skinDetails
-  let mounted = useRef()
-  const [skinDetails, setSkinDetails] = useState()
-  useEffect(() => {
-    if (!mounted.current) {
-      const setDetails = async () => {
-        let imageSrc = await getImage(skinSpecs.name)
-        setSkinDetails({imageSrc})
-      }
-      setDetails()
-      mounted.current = true;
-    }
-  });
-  const displaySrc = () => {
-    return <img className={"sidebar"} src={skinDetails.imageSrc} alt={skinSpecs.name} />
-  }
+  let skinSpecs = props.location.skinDetails
   return (
     <div className="skin-details">
       <div className="content">
@@ -30,7 +13,7 @@ export const SkinDetails = (props) => {
         <a href={`https://wiki.guildwars2.com/wiki/${skinSpecs.name}`}><img src={skinSpecs.icon} alt={skinSpecs.name} /></a>
         <a href={`https://wiki.guildwars2.com/wiki/${skinSpecs.name}`}>More info</a>
       </div>
-      {mounted.current && displaySrc()}
+      <img className={"sidebar"} src={skinSpecs.url && skinSpecs.url} alt={skinSpecs.name} />
     </div>
   );
 };
