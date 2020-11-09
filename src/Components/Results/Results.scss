@@ -7,6 +7,13 @@
 
 // etc
 
+.all-bars{
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  overflow: auto;
+}
+
 .results-header {
   background: $homeBlue;
   padding: 2rem;
@@ -14,7 +21,6 @@
 }
 
 .left-sidebar {
-  text-align:center;
   background: $homeGreen;
   grid-column: 1 / 2;
 }
