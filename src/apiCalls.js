@@ -41,7 +41,8 @@ export const getImage = async (name) => {
       let finalPath = imagePath.slice(0, -1)
       return `https://wiki.guildwars2.com/${finalPath}`
     }
-    return "No image found"
+    return "https://i.imgur.com/aAjAlP7.png"
+
   } else {
     return response.error
   }
