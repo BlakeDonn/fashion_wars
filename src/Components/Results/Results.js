@@ -10,7 +10,7 @@ export class Results extends Component {
       Armor: [],
       Weapon: [],
       Back: [],
-      UserList: [],
+      userList: [],
       SelectedCategories: props.match.params.results
     };
   }
@@ -69,9 +69,9 @@ export class Results extends Component {
   }
 
   updateList = (skin) => {
+    console.log(skin)
     this.setState({userList: [...this.state.userList, skin]})
   }
-
 
   render() {
     return (
