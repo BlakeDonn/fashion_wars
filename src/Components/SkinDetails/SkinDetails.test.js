@@ -10,6 +10,10 @@ describe('renders with Skin', () => {
   it("Should load a preview of the skins icon", () => {
     const testTry =
     {
+      details: {
+        type: "Chest",
+        weight_class: "Heavy"
+      },
       "name": "Exalted Coat",
       "icon": "Test Icon",
       "type": "Weapon",
@@ -22,6 +26,10 @@ describe('renders with Skin', () => {
   it("Should load a different type of skin", () => {
     const testTry =
     {
+      details: {
+        type: "Boots",
+        weight_class: "Heavy"
+      },
       "name": "Invisible Boots",
       "icon": "Test Icon",
       "type": "Armor",
@@ -34,6 +42,10 @@ describe('renders with Skin', () => {
   it("Should have a clickable icon to bring to wiki", () => {
     const testTry =
     {
+      details: {
+        type: "Boots",
+        weight_class: "Heavy"
+      },
       "name": "Invisible Boots",
       "icon": "Test Icon",
       "type": "Armor",
@@ -47,6 +59,10 @@ describe('renders with Skin', () => {
     getImage.mockResolvedValue("https://wiki.guildwars2.com/SplintCoat")
     const testTry =
     {
+      details: {
+        type: "Chest",
+        weight_class: "Heavy"
+      },
       "name": "Splint Coat",
       "icon": "Test Icon",
       "type": "Weapon",
@@ -61,6 +77,10 @@ describe('renders with Skin', () => {
     getImage.mockResolvedValue("https://i.imgur.com/aAjAlP7.png")
     const testTry =
     {
+      details: {
+        type: "Chest",
+        weight_class: "Heavy"
+      },
       "name": "Splint Coat",
       "icon": "Test Icon",
       "type": "Weapon",
@@ -70,6 +90,5 @@ describe('renders with Skin', () => {
     await waitFor(() => expect(screen.getByTestId("preview-test").src).toBe("https://i.imgur.com/aAjAlP7.png"))
     expect(screen.getByAltText("No image found, please check wiki link for more info")).toBeInTheDocument()
   });
-
 
 });
