@@ -1,7 +1,7 @@
 import "./Results.scss";
 import {PreviewSkin} from "../PreviewSkin/PreviewSkin";
 import React, {Component} from "react";
-import {getUserSkins, getAllSkins, getFilteredSkins, getImage} from "../../apiCalls";
+import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls";
 
 export class Results extends Component {
   constructor(props) {
@@ -46,7 +46,6 @@ export class Results extends Component {
       const skinsForUser = await getFilteredSkins(joinedSkins);
       skinsForUser.forEach(async (skin) => {
         if (this.state.SelectedCategories.includes(skin.type) && skin.name) {
-          skin.url = await getImage(skin.name)
           return stateHolder[skin.type].push(skin)
         }
         return
@@ -58,6 +57,7 @@ export class Results extends Component {
     return stateHolder
   }
 
+
   displaySkins = (skinType) => {
     if (this.state.SelectedCategories.includes(skinType)) {
       if (this.state[skinType].length) {
@@ -66,6 +66,7 @@ export class Results extends Component {
       return <h3>Loading</h3>
     }
   }
+
 
   render() {
     return (
