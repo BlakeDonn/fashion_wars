@@ -1,4 +1,4 @@
-import "./SkinsDetails.scss";
+import "./SkinDetails.scss";
 import {getImage} from '../../apiCalls'
 import React, {useState, useEffect, useRef} from "react";
 
@@ -21,10 +21,9 @@ export const SkinDetails = (props) => {
   }
   return (
     <div className="skin-details">
-      <header className="skin-details-header"></header>
-      <div class="content"></div>
-      <h3>{props.history.location.skinDetails.name}</h3>
+      <div className="content"></div>
       {mounted.current && displaySrc()}
+      <div className="icon"></div>
     </div>
   );
 };
