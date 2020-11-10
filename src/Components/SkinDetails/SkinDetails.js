@@ -2,6 +2,7 @@ import "./SkinDetails.scss";
 import React, { Component } from "react";
 import { getImage } from "../../apiCalls";
 import { Redirect } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export class SkinDetails extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export class SkinDetails extends Component {
       skinSpecs: props.location.skinDetails,
       url: "",
     };
+    console.log(props)
   }
   componentDidMount = async () => {
     if (!this.state.skinSpecs) {
@@ -112,4 +114,10 @@ export class SkinDetails extends Component {
       </div>
     );
   }
+}
+
+SkinDetails.propTypes = {
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 }
