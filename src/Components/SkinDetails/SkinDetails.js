@@ -1,18 +1,22 @@
 import "./SkinDetails.scss";
 import React, {Component} from "react";
 import {getImage} from "../../apiCalls";
+import {Redirect, Link} from 'react-router-dom'
 
 export class SkinDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userList: props.location.userList,
       skinSpecs: props.location.skinDetails,
       url: "",
     };
   }
   componentDidMount = async () => {
+    if (!this.state.skinSpecs) {
+      return (<Redirect to='/' />)
+    }
     let imageUrl = await getImage(this.state.skinSpecs.name);
-    console.log(imageUrl);
     this.setState({url: imageUrl});
   };
   determineImageDetails = () => {
@@ -56,6 +60,9 @@ export class SkinDetails extends Component {
     );
   };
   render() {
+    if (!this.state.skinSpecs) {
+      return (<Redirect to='/' />)
+    }
     return (
       <div className="skin-details">
         <div className="content">
@@ -79,6 +86,7 @@ export class SkinDetails extends Component {
               }
             >
               <img
+                data-testid={"todo-icon"}
                 src={"https://i.imgur.com/YhTbWKz.png"}
                 className={"todo"}
                 alt={"todo-icon"}
@@ -95,7 +103,17 @@ export class SkinDetails extends Component {
             alt={this.determineImageDetails()}
           />
         )}
+        <Link
+          to={{
+            pathname: "/results/todo/todo",
+            todoSkins: [...this.props.location.userList, this.state.skinSpecs]
+          }}
+          className="button"
+        >
+          View Todo List
+            </Link>
       </div>
+
     );
   }
 }
