@@ -27,6 +27,14 @@
   grid-column: 1 / 4;
 }
 
+.skin-type {
+  color: $gold;
+}
+
+.explanation-text {
+  text-align: center;
+}
+
 .left-sidebar {
   background: $homeGreen;
   grid-column: 1 / 2;
@@ -42,11 +50,16 @@
   grid-column: 3 / 4;
 }
 
-.results-footer {
-  background: $homeBlue;
-  padding: 2rem;
-  text-align: center;
-  grid-column: 1 / 4;
+.results-h1 {
+  display: grid;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.button {
+  @include button;
 }
 
 .results {

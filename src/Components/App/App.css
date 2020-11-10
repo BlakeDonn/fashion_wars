@@ -1,3 +1,9 @@
-.App{
-  background-color:black;
+@import "../../styles/variables.scss";
+
+.APP {
+  text-align: center;
+  width: 60vw;
+  margin-top: 10%;
+  background: $homeBlue;
+  padding: 2rem;
 }
