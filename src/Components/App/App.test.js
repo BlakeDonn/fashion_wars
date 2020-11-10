@@ -6,7 +6,7 @@ import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls.js";
 import {App} from "./App";
 jest.mock("../../apiCalls.js");
 
-describe("BrowsePage", () => {
+describe("App", () => {
   it("Renders the homepage by default", () => {
     render(
       <MemoryRouter>
@@ -77,7 +77,7 @@ describe("BrowsePage", () => {
     expect(screen.getByAltText(/Bifrost/i)).toBeInTheDocument()
   });
 
-  it("Use Should be able to click on a preview image and be taken to a new screen", async () => {
+  it("User Should be able to click on a preview image and be taken to the skinDetails screen", async () => {
     getUserSkins.mockResolvedValue(new Array(200).fill().map((_, i) => (i)))
     getAllSkins.mockResolvedValue(new Array(400).fill().map((_, i) => (i)))
     getFilteredSkins.mockResolvedValue([
@@ -115,4 +115,46 @@ describe("BrowsePage", () => {
     expect(screen.getByText(/Bifrost/i)).toBeInTheDocument()
     expect(screen.getByText(/More Info/i)).toBeInTheDocument()
   });
+
+  it("User should be able to add skins to todo list", async () => {
+    getUserSkins.mockResolvedValue(new Array(200).fill().map((_, i) => (i)))
+    getAllSkins.mockResolvedValue(new Array(400).fill().map((_, i) => (i)))
+    getFilteredSkins.mockResolvedValue([
+      {
+        details: {
+          damage_type: "Physical",
+          type: "Staff",
+        },
+        "name": "Bifrost",
+        "type": "Weapon",
+      },
+      {
+        details: {
+          weight_class: "Light",
+          type: "Boots",
+        },
+        "name": "Invisible Boots",
+        "type": "Armor",
+      },
+      {
+        "name": "Ad-Infinium",
+        "type": "Back",
+      }
+    ])
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+    userEvent.click(screen.getByTestId("Armor-test"));
+    userEvent.click(screen.getByTestId("Weapons-test"));
+    userEvent.click(screen.getByRole('button', {name: 'Find skins!'}));
+    await waitFor(() => expect(screen.getByText(/Skins you need to unlock!/i)).toBeInTheDocument())
+    userEvent.click(screen.getByAltText(/Bifrost/i))
+    expect(screen.getByText(/More Info/i)).toBeInTheDocument()
+    userEvent.click(screen.getByTestId("todo-icon"));
+    userEvent.click(screen.getByTestId("view-todo-test"));
+    expect(screen.getByText("Bifrost")).toBeInTheDocument();
+  });
+
 });
