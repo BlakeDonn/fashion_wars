@@ -27,8 +27,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    align-self:center;
-    display: grid;
+    align-self: center;
     justify-content: center;
     row-gap: 15px;
     grid-template-areas:
@@ -42,32 +41,32 @@
       grid-area: header;
     }
     .armor {
-      justify-self:center;
+      justify-self: center;
       grid-area: armor;
     }
 
     .armor-label {
-      justify-self:start;
+      justify-self: start;
       grid-area: armor-label;
     }
 
     .weapons {
-      justify-self:center;
+      justify-self: center;
       grid-area: weapon;
     }
 
     .weapons-label {
-      justify-self:start;
+      justify-self: start;
       grid-area: weapon-label;
     }
 
     .dyes {
-      justify-self:center;
+      justify-self: center;
       grid-area: dye;
     }
 
     .dyes-label {
-      justify-self:start;
+      justify-self: start;
       grid-area: dye-label;
     }
     .skin-submit {

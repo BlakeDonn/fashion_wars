@@ -1,8 +1,8 @@
 import "./Homepage.scss";
-import {Link} from "react-router-dom";
-import React, {useState} from "react";
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-export const Homepage = (props) => {
+export const Homepage = () => {
   const [selections, setSelections] = useState({
     Armor: false,
     Weapons: false,
@@ -42,11 +42,13 @@ export const Homepage = (props) => {
   return (
     <div className="parent">
       <section className="container">
-        <header className="home-header">
-        </header>
+        <header className="home-header"></header>
         <main className="home-main">
           <div className="checkbox-container">
-            <img src="https://fontmeme.com/permalink/201110/b986019efece3c38d0c95103a681e63a.png" alt="fashion wars logo"></img>
+            <img
+              src="https://fontmeme.com/permalink/201110/b986019efece3c38d0c95103a681e63a.png"
+              alt="fashion wars logo"
+            ></img>
             <h3 className="check-header">
               Which skins would you like to find?
             </h3>
