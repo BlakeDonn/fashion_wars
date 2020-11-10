@@ -23,5 +23,31 @@ describe('renders with Skin', () => {
     render(<MemoryRouter><TodoList location={{todoSkins: todoSkins}} /></MemoryRouter>)
     expect(screen.getByAltText(/Bifrost/i)).toBeInTheDocument()
   });
+  it("Should display as many skins as selected by user", () => {
+    const todoSkins =
+      [{
+        "name": "Bifrost",
+        "type": "Weapon",
+      },
+      {
+        "name": "Invisible Boots",
+        "type": "Armor",
+      },
+      {
+        "name": "Invisible Hat",
+        "type": "Armor",
+      },
+      {
+        "name": "Invisible Gloves",
+        "type": "Armor",
+      },
+      {
+        "name": "Ad-Infinium",
+        "type": "Back",
+      }]
+    render(<MemoryRouter><TodoList location={{todoSkins: todoSkins}} /></MemoryRouter>)
+    screen.debug()
+    expect(screen.getByAltText(/Invisible Gloves/i)).toBeInTheDocument()
+  });
 
 });
