@@ -37,7 +37,7 @@
 
 ## Future Goals
 
-  * Scrape data for weapons and backpieces (currently only armor)
+  * Scrape images for weapons and backpieces (currently only armor)
   * Utilizing a databse to have more consistent data
   * Storing user inputs to have todo-list persist
   * Add more configuration options to better sort skins
