@@ -2,12 +2,11 @@
 .skin-details {
   background-color: $homeBlue;
   display: grid;
-  grid-template-columns: 1fr minmax(150px, 25%) ;
+  grid-template-columns: 1fr minmax(150px, 25%);
   padding: 0;
   margin: 0;
   height: 100vh;
 }
-
 
 .sidebar {
   text-align: center;
@@ -17,22 +16,22 @@
 
 .bottom-buttons {
   display: grid;
-  align-items:center;
+  align-items: center;
   column-gap: 30px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px 50px;
-  grid-template-areas: 
-  "icon todo" 
-  "icon-text todo-text";
+  grid-template-areas:
+    "icon todo"
+    "icon-text todo-text";
 }
 .button {
-  @include button
+  @include button;
 }
 .content {
   margin-left: 15%;
   margin-top: 5%;
   padding: 1rem;
-   place-items: center;
+  place-items: center;
   width: 35vw;
   height: 60vh;
   display: flex;
@@ -41,28 +40,26 @@
 }
 
 .icon {
- max-width:65px;
- max-height:65px;
+  max-width: 65px;
+  max-height: 65px;
   background: wheat;
   margin: 0.5rem 0;
-  grid-area:icon;
+  grid-area: icon;
 }
-.icon-text{
-  grid-area:icon-text;
-}
-
-.todo{
- max-width:65px;
- max-height:65px;
- grid-area:todo;
+.icon-text {
+  grid-area: icon-text;
 }
 
-.todo-text{
-  grid-area:todo-text;
+.todo {
+  max-width: 65px;
+  max-height: 65px;
+  grid-area: todo;
+}
+
+.todo-text {
+  grid-area: todo-text;
 }
 
 h1 {
   font-size: 1.5rem;
 }
-
-

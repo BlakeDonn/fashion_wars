@@ -1,7 +1,7 @@
 import "./SkinDetails.scss";
-import React, {Component} from "react";
-import {getImage} from "../../apiCalls";
-import {Redirect, Link} from 'react-router-dom'
+import React, { Component } from "react";
+import { getImage } from "../../apiCalls";
+import { Redirect } from "react-router-dom";
 
 export class SkinDetails extends Component {
   constructor(props) {
@@ -14,10 +14,10 @@ export class SkinDetails extends Component {
   }
   componentDidMount = async () => {
     if (!this.state.skinSpecs) {
-      return this.props.history.goBack()
+      return this.props.history.goBack();
     }
     let imageUrl = await getImage(this.state.skinSpecs.name);
-    this.setState({url: imageUrl});
+    this.setState({ url: imageUrl });
   };
   determineImageDetails = () => {
     if (!this.state.url.length) {
@@ -61,7 +61,7 @@ export class SkinDetails extends Component {
   };
   render() {
     if (!this.state.skinSpecs) {
-      return (<Redirect to='/' />)
+      return <Redirect to="/" />;
     }
     return (
       <div className="skin-details">
@@ -105,13 +105,12 @@ export class SkinDetails extends Component {
         )}
         <button
           onClick={() => this.props.history.goBack()}
-          data-testid="view-todo-test"
+          data-testid="back-button-test"
           className="button"
         >
           Back To Results
         </button>
       </div>
-
     );
   }
 }
