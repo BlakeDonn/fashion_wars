@@ -19,6 +19,13 @@ export const TodoList = (props) => {
     });
   };
   return <div className="todo-list">
+    <button
+      onClick={() => props.history.goBack()}
+      data-testid="view-todo-test"
+      className="button"
+    >
+      Back To Results
+        </button>
     {distributeSkins()}
   </div>;
 };
