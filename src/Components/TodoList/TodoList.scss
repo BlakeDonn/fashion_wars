@@ -7,6 +7,23 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
+.button {
+  max-width:100px;
+  max-height:100px;
+  justify-self:center;
+  align-self:center;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 .skin-container {
   padding: 1rem;
   display: flex;
