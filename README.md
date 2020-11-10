@@ -48,7 +48,7 @@
 #### Homescreen
 
 - When a user gets to the homepage of "Fasion Wars" they are presented with three categories of skins they can choose to filter through.
-- When the categories are selected and ultimately the `Find skins!` button is clicked, their choice are passed through router to update the url
+- When the categories are selected and ultimately the `Find skins!` button is clicked, their choices are passed through router to update the url
 - This passing of the selected categories through router is how the filtering process begins
 
  <img src="https://i.imgur.com/QgJ3NB2.gif" alt="" height=100% width=80%/>
@@ -58,7 +58,7 @@
 #### Results Page
 
 - Based on the categories the user selected, a filtering process will begin on component mounting that has a few steps
-- The first step is to query the Guild Wars 2 API for `allSkins` and `userSkins` determined by a provided API key (these will return an array of thousands of IDS)
+- The first step is to query the Guild Wars 2 API for `allSkins` and `userSkins` determined by a provided API key (these will each return an array of thousands of IDS)
 - The second step is to run an algorithm to cross reference these Ids to find only the ones the user does not need
 - The third step is to again query the Guild Wars 2 API, this time in 200 id increments (the API limit), to get objects that have the detailed skins information
 - The fourth step is to make each of these objects into a `PreviewSkin` component for the user to interact with (represented as the skins icon)
@@ -68,7 +68,7 @@
 #### SkinDetails Page
 
 - As User has the option to click on a `PreviewSkin` component to be brought to a screen with more details about that skin
-- There is brief information about the skin type and other unique values, as well as a link to the WIKI for more info, and a button to add to the users todo list
+- There is brief information about the skin type and other unique values, a link to the WIKI for more info, and a button to add to the users todo list
 - If a user chooses to add the skin to their todo list, it will do so, and persist through route changes.
 - If a user chooses to go to the Wiki page they will be redirected as such
 
@@ -78,7 +78,7 @@
 
 
 - The users selected to-do items will exist on this page, which can be found through a button on the `Results` page
-- Currently the todo list does not persist refresh, those it does persist through many other route changes
+- Currently the todo list does not persist refresh, though it does persist through many other route changes
 
 
 <img src="https://media.giphy.com/media/KOr3BibCgx8rAS3Isu/giphy.gif" height=auto width=75%/>
@@ -91,6 +91,7 @@
   replace the [...] with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
 - `cd` into the repository with the following command `cd <repo-name>`
 - Run `npm install`
+- Set up .env file with API key REACT_APP_API_KEY=your gw2 api key here
 - Run `npm start`
 - Open browser to LocalHost:3000
 
