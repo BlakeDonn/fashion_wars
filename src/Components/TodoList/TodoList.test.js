@@ -46,7 +46,6 @@ describe('renders with Skin', () => {
         "type": "Back",
       }]
     render(<MemoryRouter><TodoList location={{todoSkins: todoSkins}} /></MemoryRouter>)
-    screen.debug()
     expect(screen.getByAltText(/Invisible Gloves/i)).toBeInTheDocument()
   });
 
