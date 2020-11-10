@@ -27,6 +27,14 @@
   grid-column: 1 / 4;
 }
 
+.skin-type {
+  color: $gold;
+}
+
+.explanation-text {
+  text-align: center;
+}
+
 .left-sidebar {
   background: $homeGreen;
   grid-column: 1 / 2;
@@ -43,7 +51,7 @@
 }
 
 .results-h1 {
-  display:grid;
+  display: grid;
 }
 
 .hidden {

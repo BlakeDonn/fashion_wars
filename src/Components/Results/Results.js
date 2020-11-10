@@ -1,8 +1,8 @@
 import "./Results.scss";
-import {PreviewSkin} from "../PreviewSkin/PreviewSkin";
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
-import {getUserSkins, getAllSkins, getFilteredSkins} from "../../apiCalls";
+import { PreviewSkin } from "../PreviewSkin/PreviewSkin";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { getUserSkins, getAllSkins, getFilteredSkins } from "../../apiCalls";
 
 export class Results extends Component {
   constructor(props) {
@@ -63,7 +63,11 @@ export class Results extends Component {
     if (this.state.SelectedCategories.includes(skinType)) {
       if (this.state[skinType].length) {
         return this.state[skinType].map((skin) => (
-          <PreviewSkin details={skin} updateList={this.updateList} userList={this.state.userList} />
+          <PreviewSkin
+            details={skin}
+            updateList={this.updateList}
+            userList={this.state.userList}
+          />
         ));
       }
       return <h3>Loading</h3>;
@@ -71,8 +75,7 @@ export class Results extends Component {
   };
 
   updateList = (skin) => {
-    console.log(skin);
-    this.setState({userList: [...this.state.userList, skin]});
+    this.setState({ userList: [...this.state.userList, skin] });
   };
 
   render() {
@@ -80,21 +83,25 @@ export class Results extends Component {
       <div className={this.props.match.isExact ? "results" : "results hidden"}>
         <header className="results-header">
           <div className="results-h1">
-            <h1 className="header-h1">Skins you need to unlock!</h1>
+            <h1 className="header-h1 skin-type">Skins you need to unlock!</h1>
             <Link
               to={{
                 pathname: "/results/todo/todo",
                 todoSkins: this.state.userList,
               }}
+              data-testid="todo-list-button"
               className="button"
             >
               View Todo List
             </Link>
           </div>
+          <p className="explanation-text skin-type">
+            Click on the icon below to be taken to the preview screen
+          </p>
           <div className="header-container">
-            <h3>Armor</h3>
-            <h3>Backpieces</h3>
-            <h3>Weapons</h3>
+            <h3 className="skin-type">Armor</h3>
+            <h3 className="skin-type">Backpieces</h3>
+            <h3 className="skin-type">Weapons</h3>
           </div>
         </header>
         <div className="left-sidebar all-bars">
