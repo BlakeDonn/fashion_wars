@@ -81,7 +81,7 @@
 - Currently the todo list does not persist refresh, those it does persist through many other route changes
 
 
-<img src="https://media.giphy.com/media/nDfoySquwAScYuDby2/giphy.gif" height=auto width=75%/>
+<img src="https://media.giphy.com/media/KOr3BibCgx8rAS3Isu/giphy.gif" height=auto width=75%/>
 
 ### Set up
 
