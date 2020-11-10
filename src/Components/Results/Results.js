@@ -14,6 +14,7 @@ export class Results extends Component {
       userList: [],
       SelectedCategories: props.match.params.results,
     };
+    console.log(props)
   }
   componentDidMount = async () => {
     let neededSkins = await this.filterSkinsByType();
@@ -63,7 +64,7 @@ export class Results extends Component {
     if (this.state.SelectedCategories.includes(skinType)) {
       if (this.state[skinType].length) {
         return this.state[skinType].map((skin) => (
-          <PreviewSkin details={skin} updateList={this.updateList} />
+          <PreviewSkin details={skin} updateList={this.updateList} userList={this.state.userList} />
         ));
       }
       return <h3>Loading</h3>;
@@ -77,17 +78,19 @@ export class Results extends Component {
 
   render() {
     return (
-      <div className="results">
+      <div className={this.props.match.isExact ? "results" : "results hidden"}>
         <header className="results-header">
           <div className="results-h1">
             <h1 className="header-h1">Skins you need to unlock!</h1>
             <Link
               to={{
-                pathname: "/todo",
+                pathname: "/results/todo/todo",
                 todoSkins: this.state.userList,
               }}
               className="button"
-            >View Todo List</Link>
+            >
+              View Todo List
+            </Link>
           </div>
           <div className="header-container">
             <h3>Armor</h3>

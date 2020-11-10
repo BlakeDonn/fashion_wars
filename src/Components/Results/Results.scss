@@ -46,6 +46,10 @@
   display:grid;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .button {
   justify-self:center;
   background-color: #4CAF50;
