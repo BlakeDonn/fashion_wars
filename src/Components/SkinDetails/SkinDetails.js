@@ -108,6 +108,7 @@ export class SkinDetails extends Component {
             pathname: "/results/todo/todo",
             todoSkins: [...this.props.location.userList, this.state.skinSpecs]
           }}
+          data-testid="view-todo-test"
           className="button"
         >
           View Todo List
