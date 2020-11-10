@@ -14,7 +14,7 @@ export class SkinDetails extends Component {
   }
   componentDidMount = async () => {
     if (!this.state.skinSpecs) {
-      return (<Redirect to='/' />)
+      return this.props.history.goBack()
     }
     let imageUrl = await getImage(this.state.skinSpecs.name);
     this.setState({url: imageUrl});
@@ -103,16 +103,13 @@ export class SkinDetails extends Component {
             alt={this.determineImageDetails()}
           />
         )}
-        <Link
-          to={{
-            pathname: "/results/todo/todo",
-            todoSkins: [...this.props.location.userList, this.state.skinSpecs]
-          }}
+        <button
+          onClick={() => this.props.history.goBack()}
           data-testid="view-todo-test"
           className="button"
         >
-          View Todo List
-            </Link>
+          Back To Results
+        </button>
       </div>
 
     );
