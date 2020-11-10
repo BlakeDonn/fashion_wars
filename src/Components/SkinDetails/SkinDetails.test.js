@@ -1,5 +1,5 @@
 import {SkinDetails} from './SkinDetails';
-iport {render, screen, waitFor} from "@testing-library/react";
+import {render, screen, waitFor} from "@testing-library/react";
 import {MemoryRouter} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import {getImage} from "../../apiCalls";
