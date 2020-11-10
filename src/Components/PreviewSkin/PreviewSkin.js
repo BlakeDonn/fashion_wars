@@ -2,7 +2,6 @@ import "./PreviewSkin.scss";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 export const PreviewSkin = (props) => {
-  console.log(props)
   return (
     <div className="preview-skin">
       <Link
@@ -24,4 +23,5 @@ export const PreviewSkin = (props) => {
 
 PreviewSkin.propTypes = {
   details: PropTypes.object.isRequired,
+  updateList: PropTypes.func.isRequired
 }
