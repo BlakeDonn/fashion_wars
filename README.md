@@ -6,7 +6,7 @@
 
 ## Overview
 
-`Fashion Wars` Is a Guild Wars 2 player-helper applicaiton meant to help users find and keep track of what skins they have yet to unlock in the game. The Guild Wars 2 API allows for individualized feedback based on what a user has specificly unlocked. This application provided the user with a user-friendly place to see this data, get more informaton aout the skins they are missing, and add a speicific skin to a todo-list for better tracking.
+`Fashion Wars` Is a Guild Wars 2 player-helper application meant to help users find and keep track of what skins they have yet to unlock in the game. The Guild Wars 2 API allows for individualized feedback based on what a user has specificly unlocked. This application provided the user with a user-friendly place to see this data, get more informaton aout the skins they are missing, and add a speicific skin to a todo-list for better tracking.
 
 ## Context
 
