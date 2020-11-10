@@ -1,4 +1,6 @@
 import "./TodoList.scss";
+import PropTypes from 'prop-types';
+
 export const TodoList = (props) => {
   const distributeSkins = () => {
     return props.location.todoSkins.map((skin) => {
@@ -26,3 +28,8 @@ export const TodoList = (props) => {
     </div>
   );
 };
+TodoList.propTypes = {
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+}

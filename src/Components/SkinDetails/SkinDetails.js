@@ -11,7 +11,6 @@ export class SkinDetails extends Component {
       skinSpecs: props.location.skinDetails,
       url: "",
     };
-    console.log(props)
   }
   componentDidMount = async () => {
     if (!this.state.skinSpecs) {
