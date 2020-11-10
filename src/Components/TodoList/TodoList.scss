@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+.todo-list {
+  background-color: $homeBlue;
+  display: grid;
+  height: 100vh;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.skin-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background: $homeGreen;
+}
