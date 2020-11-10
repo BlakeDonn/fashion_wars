@@ -2,6 +2,7 @@ import "./Results.scss";
 import { PreviewSkin } from "../PreviewSkin/PreviewSkin";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import { getUserSkins, getAllSkins, getFilteredSkins } from "../../apiCalls";
 
 export class Results extends Component {
@@ -14,6 +15,7 @@ export class Results extends Component {
       userList: [],
       SelectedCategories: props.match.params.results,
     };
+    console.log(props)
   }
   componentDidMount = async () => {
     let neededSkins = await this.filterSkinsByType();
@@ -115,4 +117,10 @@ export class Results extends Component {
       </div>
     );
   }
+}
+
+Results.propTypes = {
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 }
