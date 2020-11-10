@@ -14,8 +14,8 @@ export const Homepage = (props) => {
     setSelections(selectionsToUpdate);
   };
   const determineStateToPost = () => {
-    const choices = Object.keys(selections)
-    const finalChoices = choices.filter(selection => selections[selection])
+    const choices = Object.keys(selections);
+    const finalChoices = choices.filter((selection) => selections[selection]);
     return `/results/${finalChoices}`;
   };
 
@@ -42,10 +42,11 @@ export const Homepage = (props) => {
   return (
     <div className="parent">
       <section className="container">
-        <header className="home-header">Header</header>
+        <header className="home-header">
+        </header>
         <main className="home-main">
-          <h1>Welcome To Fashion Wars !</h1>
           <div className="checkbox-container">
+            <img src="https://fontmeme.com/permalink/201110/b986019efece3c38d0c95103a681e63a.png" alt="fashion wars logo"></img>
             <h3 className="check-header">
               Which skins would you like to find?
             </h3>
@@ -55,7 +56,7 @@ export const Homepage = (props) => {
             </Link>
           </div>
         </main>
-        <footer className="home-footer">Footer Content</footer>
+        <footer className="home-footer"></footer>
       </section>
     </div>
   );
