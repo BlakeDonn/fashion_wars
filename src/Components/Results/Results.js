@@ -14,7 +14,6 @@ export class Results extends Component {
       userList: [],
       SelectedCategories: props.match.params.results,
     };
-    console.log(props)
   }
   componentDidMount = async () => {
     let neededSkins = await this.filterSkinsByType();
