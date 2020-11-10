@@ -13,7 +13,7 @@ describe("App", () => {
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByText(/Fashion/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/fashion wars logo/i)).toBeInTheDocument();
   });
 
   it("User should be able to get to the results page and see their skins", async () => {
@@ -153,7 +153,8 @@ describe("App", () => {
     userEvent.click(screen.getByAltText(/Bifrost/i))
     expect(screen.getByText(/More Info/i)).toBeInTheDocument()
     userEvent.click(screen.getByTestId("todo-icon"));
-    userEvent.click(screen.getByTestId("view-todo-test"));
+    userEvent.click(screen.getByTestId("back-button-test"));
+    userEvent.click(screen.getByTestId("todo-list-button"));
     expect(screen.getByText("Bifrost")).toBeInTheDocument();
   });
 
