@@ -7,7 +7,6 @@ export class SkinDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userList: props.location.userList,
       skinSpecs: props.location.skinDetails,
       url: "",
     };

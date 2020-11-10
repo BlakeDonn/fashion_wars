@@ -66,7 +66,6 @@ export class Results extends Component {
           <PreviewSkin
             details={skin}
             updateList={this.updateList}
-            userList={this.state.userList}
           />
         ));
       }
